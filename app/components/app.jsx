@@ -29,6 +29,7 @@ export default class App extends Component {
         <h1>Movie Watcher</h1>
         <CardGrid className='card-grid'
                   cardArr={ this.state.cardArr }/>
+
       </div>
     )
   }

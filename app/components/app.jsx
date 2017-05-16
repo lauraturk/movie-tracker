@@ -13,20 +13,19 @@ export default class App extends Component {
   }
 
 
-  componentDidMount() {
-    let address = `https://api.themoviedb.org/3/movie/now_playing?api_key=${key}&language=en-US`
-
-    fetch(address)
-      .then(response => response.json())
-      .then(movieObj => {
-        this.setState({ cardArr: movieObj.results })
-      })
-
-  }
+  // componentDidMount() {
+  //   let address = `https://api.themoviedb.org/3/movie/now_playing?api_key=${key}&language=en-US`
+  //
+  //   fetch(address)
+  //     .then(response => response.json())
+  //     .then(movieObj => {
+  //       fetchMovies(movieObj)
+  //     })
+  //
+  // }
 
   render() {
     const { cardArr } = this.state
-    console.log(cardArr)
 
     return (
       <div>

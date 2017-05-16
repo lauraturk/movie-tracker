@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import key from './key.js'
 import CardGrid from './CardGrid.js'
+import { Route, Link, Switch } from 'react-router-dom'
+import { NavBar } from './NavBar'
 
 export default class App extends Component {
   constructor() {
@@ -12,23 +14,38 @@ export default class App extends Component {
 
 
   componentDidMount() {
-    let address = `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US`
+    let address = `https://api.themoviedb.org/3/movie/now_playing?api_key=${key}&language=en-US`
 
     fetch(address)
       .then(response => response.json())
       .then(movieObj => {
-        console.log(movieObj);
         this.setState({ cardArr: movieObj.results })
       })
 
   }
 
   render() {
+    const { cardArr } = this.state
+    console.log(cardArr)
+
     return (
       <div>
-        <h1>Movie Watcher</h1>
-        <CardGrid className='card-grid'
-                  cardArr={ this.state.cardArr }/>
+        <nav>
+          <h1>Movie Watcher</h1>
+          <NavBar />
+        </nav>
+        <Route exact path='/' render={() => {
+          return (
+            <CardGrid className='card-grid'
+              cardArr={ cardArr }/>
+          )}} />
+
+        <Route exact path='/favorites' render={() => {
+          return (
+            <CardGrid className='card-grid'
+              cardArr={ cardArr }/>
+          )}} />
+
       </div>
     )
   }

@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import { toggleFav } from '../actions/index.js';
-import CardGrid from '../components/CardGrid';
+import MovieGrid from '../components/MovieGrid';
 
   const mapStateToProps = (state) => {
-    return { cards : state.movies}
+    return { movies : state.movies}
   }
 
   // const mapDispatchToProps = (dispatch) => {
@@ -12,4 +12,4 @@ import CardGrid from '../components/CardGrid';
   //   }
   // }
 
-export default connect(mapStateToProps, null)(CardGrid)
+export default connect(mapStateToProps, null)(MovieGrid)

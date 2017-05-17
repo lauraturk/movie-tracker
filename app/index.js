@@ -27,9 +27,13 @@ store.dispatch(loadMovies())
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={ history }>
-      <Route  path='/'
-              component={ App }>
-      </Route>
+      <App />
     </ConnectedRouter>
   </Provider>,
   document.getElementById('main'))
+
+
+
+//   <Route  path='/'
+//   component={ App }>
+// </Route>

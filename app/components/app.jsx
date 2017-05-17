@@ -2,7 +2,7 @@ import React from 'react';
 // import key from './key.js'
 import CardGrid from './CardGrid.js'
 import MoviesContainer from '../containers/movies-container.js'
-// import { Route, Link, Switch } from 'react-router-dom'
+import { Route, Link, Switch } from 'react-router-dom'
 import { NavBar } from './NavBar'
 
 
@@ -16,7 +16,16 @@ const App = () => {
     <div>
       <nav>
         <h1>Movie Watcher</h1>
+        <NavBar />
       </nav>
+
+      <Route exact path='/' component={MoviesContainer} />
+
+      <Route exact path='/favorites' render={() => {
+        return (
+          <MoviesContainer />
+        )
+      }} />
 
 
     </div>
@@ -24,12 +33,3 @@ const App = () => {
 }
 
 export default App
-
-// {/* <NavBar /> */}
-//
-// {/* <Route exact path='/home' component={MoviesContainer} /> */}
-//
-// {/* <Route exact path='/favorites' render={() => {
-//   return (
-//   <MoviesContainer />
-// )}} /> */}

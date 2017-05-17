@@ -1,28 +1,26 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Card from './Card.js';
+// import PropTypes from 'prop-types';
+// import Card from './Card.js';
 
 
-const CardGrid = ( { cardArr } ) => {
-  if (!cardArr.length) {
-    return <div></div>
-  }
+const CardGrid = (props) => {
+  console.log(props)
 
-  const cardGridArr = cardArr.map( (cardObj, i) =>{
-    return <Card className='card'
-                 cardData={ cardObj }
-                 key={i}
-               />
-  })
+//   const cardGridArr = cardArr.map( (cardObj, i) =>{
+//     return <Card className='card'
+//                  cardData={ cardObj }
+//                  key={i}
+//                />
+//   })
+//
+//   return(
+//     <div id='card-grid-container'>{ cardGridArr }</div>
+//   )
+//
+// }
 
-  return(
-    <div id='card-grid-container'>{ cardGridArr }</div>
-  )
-
-}
-
-Card.propTypes = {
-  cardArr: PropTypes.array,
+// Card.propTypes = {
+//   cardArr: PropTypes.array,
 }
 
 export default CardGrid

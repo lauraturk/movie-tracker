@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 const Card = ({ cardData }) => {
 
@@ -15,8 +15,8 @@ const Card = ({ cardData }) => {
 
 }
 
-Card.propTypes = {
-  cardData: PropTypes.object,
-}
+// Card.propTypes = {
+//   cardData: PropTypes.object,
+// }
 
 export default Card

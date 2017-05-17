@@ -1,17 +1,15 @@
 import { connect } from 'react-redux';
-import { fetchMovies } from '../actions/index.js';
-import App from '../components/app';
+import { toggleFav } from '../actions/index.js';
+import CardGrid from '../components/CardGrid';
 
-const mapStateToProps = (state) => {
-  console.log(state)
-}
+  const mapStateToProps = (state) => {
+    return { cards : state.movies}
+  }
 
-const mapDispatchToProps = (dispatch) => {
-  return{
-    fetchApi: (response) => {
-      dispatch(fetchMovies(response))
+  const mapDispatchToProps = (dispatch) => {
+    handleFavorite: (id) => {
+      dispatch(toggleFav(id))
     }
   }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(CardGrid)

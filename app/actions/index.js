@@ -17,9 +17,16 @@ export const addMovies = (moviesArray) => {
   }
 }
 
-export const toggleFav = (id) => {
+// export const toggleFav = (id) => {
+//   return {
+//     type: 'TOGGLE_FAV',
+//     id,
+//   }
+// }
+
+export const updateFavs = (id) => {
   return {
-    type: 'TOGGLE_FAV',
-    id,
+    type: 'UPDATE_FAVS',
+    id
   }
 }

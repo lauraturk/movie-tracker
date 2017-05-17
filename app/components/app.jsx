@@ -4,7 +4,7 @@ import React from 'react';
 import MovieGridContainer from '../containers/MovieGridContainer.js'
 import { Route, Link, Switch } from 'react-router-dom'
 import { NavBar } from './NavBar'
-
+import UserSignIn from './UserSignIn.js'
 
 const App = () => {
   // const { handleFavorite, cards } = this.props
@@ -17,6 +17,7 @@ const App = () => {
       <nav>
         <h1>Movie Watcher</h1>
         <NavBar />
+        <UserSignIn />
       </nav>
 
       <Route exact path='/' component={ MovieGridContainer } />

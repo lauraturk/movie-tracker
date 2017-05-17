@@ -23,7 +23,6 @@ const store = createStore(combineReducers({
   router: routerReducer}), devTools, applyMiddleware(thunk, routeMiddleware))
 
 store.dispatch(loadMovies())
-// console.log(store);
 
 ReactDOM.render(
   <Provider store={store}>
@@ -34,13 +33,3 @@ ReactDOM.render(
     </ConnectedRouter>
   </Provider>,
   document.getElementById('main'))
-
-
-
-  // <Provider store={ store }>
-  //   <ConnectedRouter history={ history } >
-  //     <Route  path='/'
-  //             component={ App }/>
-  //   </ConnectedRouter>
-  // </Provider>,
-  // <App/>,

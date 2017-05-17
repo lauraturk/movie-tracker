@@ -1,8 +1,8 @@
-import MovieApi from '../components/helper.js';
+import ApiCalls from '../components/helper.js';
 
 export const loadMovies = () => {
   return (dispatch) => {
-    return MovieApi.getAllMovies().then(movies => {
+    return ApiCalls.getAllMovies().then(movies => {
       dispatch(addMovies(movies));
     }).catch(error => {
       throw(error);
@@ -28,5 +28,12 @@ export const updateFavs = (id) => {
   return {
     type: 'UPDATE_FAVS',
     id
+  }
+}
+
+export const addNewUser = (moviesArray) => {
+  return {
+    type: 'ADD_MOVIES',
+    moviesArray,
   }
 }

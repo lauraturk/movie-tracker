@@ -4,48 +4,30 @@ import CardGrid from './CardGrid.js'
 import { Route, Link, Switch } from 'react-router-dom'
 import { NavBar } from './NavBar'
 
-export default class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      cardArr: []
-    }
-  }
+
+export const App = (props) => {
+  const { handleFavorite, cards } = this.props
+  console.log(cards)
 
 
-  // componentDidMount() {
-  //   let address = `https://api.themoviedb.org/3/movie/now_playing?api_key=${key}&language=en-US`
-  //
-  //   fetch(address)
-  //     .then(response => response.json())
-  //     .then(movieObj => {
-  //       fetchMovies(movieObj)
-  //     })
-  //
-  // }
-
-  render() {
-    const { cardArr } = this.state
-
+    // const { cardArr } = this.state
+    // console.log(cardArr, "cardArr")
     return (
       <div>
-        <nav>
-          <h1>Movie Watcher</h1>
-          <NavBar />
-        </nav>
-        <Route exact path='/' render={() => {
-          return (
-            <CardGrid className='card-grid'
-              cardArr={ cardArr }/>
-          )}} />
+      <nav>
+      <h1>Movie Watcher</h1>
+      <NavBar />
+    </nav>
+    <Route exact path='/' render={() => {
+    return (
+  )}} />
 
-        <Route exact path='/favorites' render={() => {
-          return (
-            <CardGrid className='card-grid'
-              cardArr={ cardArr }/>
-          )}} />
+  <Route exact path='/favorites' render={() => {
+  return (
+  <CardGrid className='card-grid'
+  cardArr={ cardArr }/>
+)}} />
 
-      </div>
+</div>
     )
   }
-}

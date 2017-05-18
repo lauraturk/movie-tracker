@@ -31,9 +31,16 @@ export const updateFavs = (id) => {
   }
 }
 
-export const addNewUser = (moviesArray) => {
+// export const addNewUser = (userId) => {
+//   return {
+//     type: 'ADD_NEW_USER',
+//     userId,
+//   }
+// }
+
+export const signInUser = (userId) => {
   return {
-    type: 'ADD_MOVIES',
-    moviesArray,
+    type: 'SIGN_IN_USER',
+    userId,
   }
 }

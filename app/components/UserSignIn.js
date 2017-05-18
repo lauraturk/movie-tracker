@@ -2,22 +2,34 @@ import React, {Component} from 'react';
 import ApiCalls from './helper.js'
 
 class UserSignIn extends Component{
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
+
   }
 
   handleNewUser() {
-    const thatObj = {
-      name: 'thatnastylady',
-      password: 'thatnastylady',
-      email: 'thatnastylady@gmail.com'
+    const newUserBody = {
+      name: 'bob',
+      password: 'password',
+      email: 'bob@gmail.com'
     }
-    fetch('/api/users/new',{
+
+    const signInBody = {
+      email: 'bob@gmail.com',
+      password: 'password'
+    }
+
+    const newUserApi = '/api/users/new'
+    const signInApi = '/api/users/'
+    let { handleSignIn, userId } = this.props
+
+    fetch(signInApi,{
       method: 'POST',
-      body: JSON.stringify(thatObj),
+      body: JSON.stringify(signInBody),
       headers: { 'Content-Type':'application/json' },
     })
-    .then(userId => console.log(userId))
+    .then(response => response.json())
+    .then(responseId => {handleSignIn(responseId.data)})
     .catch(error => console.log(error))
     // .then(response => response.json())
   }

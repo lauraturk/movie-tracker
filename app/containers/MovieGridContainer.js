@@ -2,8 +2,10 @@ import { connect } from 'react-redux';
 import { toggleFav } from '../actions/index.js';
 import MovieGrid from '../components/MovieGrid';
 
-  const mapStateToProps = (state) => {
-    return { movies : state.movies}
+  const mapStateToProps = (state, {favoriteProp}) => {
+    return {
+      movies : state.movies,
+      favoriteProp} 
   }
 
   // const mapDispatchToProps = (dispatch) => {

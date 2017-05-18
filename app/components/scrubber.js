@@ -1,5 +1,4 @@
 export const cleanMovies = (rawMovies) => {
-  // console.log(rawMovies);
   let cleanedMovies = rawMovies.map( movie => {
     return {
       movie_id: movie.id,
@@ -12,6 +11,6 @@ export const cleanMovies = (rawMovies) => {
       favorited: false
     };
   })
-  console.log(cleanedMovies);
+  
   return cleanedMovies
 }

@@ -20,11 +20,15 @@ const App = () => {
         <UserContainer />
       </nav>
 
-      <Route exact path='/' component={ MovieGridContainer } />
+      <Route exact path='/' render={ () => {
+        return (
+          <MovieGridContainer favoriteProp={ false } />
+        )
+      } } />
 
       <Route exact path='/favorites' render={ () => {
         return (
-          <MovieGridContainer />
+          <MovieGridContainer favoriteProp={ true } />
         )
       }} />
 

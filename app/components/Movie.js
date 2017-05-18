@@ -1,4 +1,5 @@
 import React from 'react';
+import { FavoritesButton } from './FavoritesButton';
 // import PropTypes from 'prop-types';
 
 const Movie = ({ movieData }) => {
@@ -12,7 +13,7 @@ const Movie = ({ movieData }) => {
       <h3>Title: { movieData.title }</h3>
       <h3>Release Date: { movieData.release_date }</h3>
       <img src={`${imgURL}${movieData.poster_path}`}/>
-      {/* <FavoritesContainer /> */}
+      <FavoritesButton />
     </div>
   )
 

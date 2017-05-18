@@ -19,9 +19,13 @@ class UserSignIn extends Component{
   }
 
   handleSignInUser() {
-    let { handleSignIn } = this.props
+    let { handleSignIn, history } = this.props
+    console.log(history.history)
     this.apiFetch('/api/users/', {email: this.state.email, password: this.state.password})
-    .then(responseId => handleSignIn(responseId.data))
+    .then(responseId => {
+      handleSignIn(responseId.data)
+      history.history.replace('/')
+    })
     .catch(error => console.log(error, "handleSignInUser error"))
 
   }
@@ -38,7 +42,6 @@ class UserSignIn extends Component{
   }
 
   render() {
-    console.log(history)
     let { userId } = this.props;
     return(
       <div>

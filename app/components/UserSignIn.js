@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+
 import ApiCalls from './helper.js'
 
 class UserSignIn extends Component{
@@ -22,6 +23,7 @@ class UserSignIn extends Component{
     this.apiFetch('/api/users/', {email: this.state.email, password: this.state.password})
     .then(responseId => handleSignIn(responseId.data))
     .catch(error => console.log(error, "handleSignInUser error"))
+
   }
 
 
@@ -36,6 +38,7 @@ class UserSignIn extends Component{
   }
 
   render() {
+    console.log(history)
     let { userId } = this.props;
     return(
       <div>

@@ -17,20 +17,26 @@ const App = () => {
       <nav>
         <h1>Movie Watcher</h1>
         <NavBar />
-        <UserContainer />
+        <Link to={'/login'}>User</Link>
       </nav>
 
-      <Route exact path='/' render={ () => {
+      <Route path='/login' render={ (history) => {
+          return (
+            <UserContainer  />
+          )
+        } } />
+
+      <Route path='/' render={ () => {
         return (
           <MovieGridContainer favoriteProp={ false } />
         )
       } } />
 
-      <Route exact path='/favorites' render={ () => {
+      <Route path='/favorites' render={ () => {
         return (
           <MovieGridContainer favoriteProp={ true } />
         )
-      }} />
+      } } />
 
 
     </div>

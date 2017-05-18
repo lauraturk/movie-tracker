@@ -1,19 +1,21 @@
 import ApiCalls from '../components/helper.js';
+import { cleanMovies } from '../components/scrubber.js';
 
 export const loadMovies = () => {
   return (dispatch) => {
-    return ApiCalls.getAllMovies().then(movies => {
-      dispatch(addMovies(movies));
-    }).catch(error => {
-      throw(error);
-    });
+    return ApiCalls.getAllMovies()
+      .then(rawMovies => {
+        let cleanedMovies = cleanMovies(rawMovies.results)
+        dispatch(addMovies(cleanedMovies))
+      })
+      .catch(error => { throw(error) });
   };
 }
 
 export const addMovies = (moviesArray) => {
   return {
     type: 'ADD_MOVIES',
-    moviesArray,
+    moviesArray
   }
 }
 

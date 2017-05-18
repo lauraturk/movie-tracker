@@ -4,7 +4,13 @@ import Movie from './Movie.js';
 
 
 const MovieGrid = (props) => {
-  let { movies, handleFavorite } = props
+  let { movies, handleFavorite, favoriteProp } = props
+
+  if(favoriteProp) {
+    movies = movies.filter( movieObj => {
+      return movieObj.favorited
+    })
+  }
 
   const movieGridArr = movies.map( (movieObj, i) =>{
     return <Movie className='movie'

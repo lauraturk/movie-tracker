@@ -7,8 +7,7 @@ const MovieGrid = (props) => {
   let { movieList, handleFavorite, favoriteProp} = props
 
   const movieGridArr = movieList.map( (movieObj, i) =>{
-    return <Movie className='movie'
-                  movieData={ movieObj }
+    return <Movie movieData={ movieObj }
                   favProp={ favoriteProp }
                   key={i}
             />

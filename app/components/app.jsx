@@ -9,33 +9,35 @@ import UserContainer from '../containers/UserContainer.js'
 const App = () => {
 
   return (
-    <div>
+    <section>
       <nav>
-        <h1>Movie Watcher</h1>
+        <h1 className="page-title">Movie Watcher</h1>
         <Link to={'/login'}>USER</Link>
         <NavBar />
       </nav>
-
-      <Route path='/login' render={ (history) => {
+      <main className="main">
+        <Route path='/login' render={ (history) => {
           return (
             <UserContainer  history={ history }/>
           )
-        } } />
+         } } />
 
-      <Route exact path='/' render={ () => {
-        return (
-          <MovieGridContainer favoriteProp={ false } />
-        )
-      } } />
+        <Route exact path='/' render={ () => {
+          return (
+            <MovieGridContainer favoriteProp={ false } />
+          )
+         } } />
 
-      <Route exact path='/favorites' render={ () => {
-        return (
-          <MovieGridContainer favoriteProp={ true } />
-        )
-      } } />
+        <Route exact path='/favorites' render={ () => {
+          return (
+            <MovieGridContainer favoriteProp={ true } />
+          )
+         } } />
+      </main>
 
 
-    </div>
+
+    </section>
   )
 }
 

@@ -4,19 +4,14 @@ import Movie from './Movie.js';
 
 
 const MovieGrid = (props) => {
-  let { movies, handleFavorite, favoriteProp } = props
+  let { movieList, handleFavorite, favoriteProp} = props
 
-  if(favoriteProp) {
-    movies = movies.filter( movieObj => {
-      return movieObj.favorited
-    })
-  }
-
-  const movieGridArr = movies.map( (movieObj, i) =>{
+  const movieGridArr = movieList.map( (movieObj, i) =>{
     return <Movie className='movie'
-                 movieData={ movieObj }
-                 key={i}
-               />
+                  movieData={ movieObj }
+                  favProp={ favoriteProp }
+                  key={i}
+            />
   })
 
   return(

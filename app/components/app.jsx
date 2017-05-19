@@ -18,17 +18,17 @@ const App = () => {
 
       <Route path='/login' render={ (history) => {
           return (
-            <UserContainer  history={history}/>
+            <UserContainer  history={ history }/>
           )
         } } />
 
-      <Route path='/' render={ () => {
+      <Route exact path='/' render={ () => {
         return (
           <MovieGridContainer favoriteProp={ false } />
         )
       } } />
 
-      <Route path='/favorites' render={ () => {
+      <Route exact path='/favorites' render={ () => {
         return (
           <MovieGridContainer favoriteProp={ true } />
         )

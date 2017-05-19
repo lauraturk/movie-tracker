@@ -8,16 +8,14 @@ export default class ApiCalls {
     .then(movieObj => movieObj)
   }
 
-  // static newUser() {
-  //   const myHeaders = new Headers();
-  //   myHeaders.append('Content-Type', 'application/json')
-  //
-  //   return fetch('/api/users/new',{
+  // static getFavMoviesInit(userId) {
+  //   return fetch('/users/:id/favorites', {
   //     method: 'POST',
-  //     header: myHeaders,
-  //     body: {name: 'Some Dude', email: 'thatdude@gmail.com', password: 'suhdude'}
+  //     body: JSON.stringify({params: userId}),
+  //     headers: { 'Content-Type':'application/json' }
   //   })
   //   .then(response => response.json())
-  //   .then(userId => console.log(userId))
+  //   .then(favObjInit) => favObjInit)
   // }
+
 }

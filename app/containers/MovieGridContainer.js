@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
-import { toggleFav } from '../actions/index.js';
 import MovieGrid from '../components/MovieGrid';
 
-  const mapStateToProps = (state, {favoriteProp}) => {
+  const mapStateToProps = (state, { favoriteProp }) => {
+    let movies = favoriteProp ? state.favorites : state.movies;
+
     return {
-      movies : state.movies,
-      favoriteProp} 
+      movieList : movies
+    }
   }
 
   // const mapDispatchToProps = (dispatch) => {

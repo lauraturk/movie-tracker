@@ -19,6 +19,22 @@ export const addMovies = (moviesArray) => {
   }
 }
 
+// export const loadFavMoviesInit = () => {
+//   return (dispatch) => {
+//     return ApiCalls.getFavMoviesInit(userId)
+//       .then(favMovies => {dispatch(addFaveInit(favMovies))})
+//       .catch(error => { throw(error) });
+//   };
+// }
+//
+// export const addFavInit = (userId favArray) => {
+//   return {
+//     type: 'ADD_FAV_ARRAY_INIT',
+//     favArray,
+//     userId
+//   }
+// }
+
 export const addFav = (userId, favMovie) => {
   return {
     type: 'ADD_FAV',
@@ -34,20 +50,6 @@ export const removeFav = (userId, favMovie) => {
     favMovie
   }
 }
-
-// export const updateFavs = (userId, ) => {
-//   return {
-//     type: 'UPDATE_FAVS',
-//     id
-//   }
-// }
-
-// export const displayFav = (userId, favoritesArray ) => {
-//   return {
-//     type: 'UPDATE_FAVS',
-//     id
-//   }
-// }
 
 export const signInUser = (userId) => {
   return {

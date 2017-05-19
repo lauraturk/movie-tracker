@@ -19,24 +19,33 @@ export const addMovies = (moviesArray) => {
   }
 }
 
-// export const toggleFav = (id) => {
-//   return {
-//     type: 'TOGGLE_FAV',
-//     id,
-//   }
-// }
-
-export const updateFavs = (id) => {
+export const addFav = (userId, favMovie) => {
   return {
-    type: 'UPDATE_FAVS',
-    id
+    type: 'ADD_FAV',
+    userId,
+    favMovie
   }
 }
 
-// export const addNewUser = (userId) => {
+export const removeFav = (userId, favMovie) => {
+  return {
+    type: 'REMOVE_FAV',
+    userId,
+    favMovie
+  }
+}
+
+// export const updateFavs = (userId, ) => {
 //   return {
-//     type: 'ADD_NEW_USER',
-//     userId,
+//     type: 'UPDATE_FAVS',
+//     id
+//   }
+// }
+
+// export const displayFav = (userId, favoritesArray ) => {
+//   return {
+//     type: 'UPDATE_FAVS',
+//     id
 //   }
 // }
 

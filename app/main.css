@@ -1,11 +1,42 @@
-#main h1 {
-  background-color: blue;
+body {
+  margin: 0;
+  padding 0;
+  font-family: 'Rubik', sans-serif;
 }
 
-#main {
+nav {
+  background-color: #F0EDA4;
   text-align: center;
 }
 
+.page-title {
+  color: #230007;
+  font-family: 'Trirong', serif;
+  font-weight: 700;
+  font-size: 54px;
+  margin: 0 auto;
+}
+
+.main {
+  background-color: #EDE5E1;
+  margin: 0;
+}
+
+#movie-grid-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.movie {
+  height: 300px;
+  width: 200px;
+
+  margin: 10px;
+}
+
+
 .svg-hidden {
-  display: none;
+  display: none
 }

@@ -4,13 +4,20 @@ import FavoriteContainer from '../containers/FavoriteContainer';
 
 const Movie = ({ movieData, favProp }) => {
   // console.log(cardData);
-  const imgURL = 'https://image.tmdb.org/t/p/w300';
+  const imgURL = '';
+  const backgroundStyle = {
+    backgroundImage: `url(https://image.tmdb.org/t/p/w300${movieData.poster_path})`,
+    backgroundSize: 'cover'
+  }
+
+  const hoverStyle = {
+    
+  }
 
   return (
-    <div >
+    <div className='movie' style={backgroundStyle}>
       <h3>Title: { movieData.title }</h3>
       <h3>Release Date: { movieData.release_date }</h3>
-      <img src={`${imgURL}${movieData.poster_path}`}/>
       <FavoriteContainer  favMovie={movieData}
                           favsProp={ favProp }/>
     </div>

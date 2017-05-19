@@ -1,23 +1,24 @@
 import React from 'react'
 
-export const FavoriteButton = ({handleFavAdd, handleFavRemove, userId, favMovie}) => {
-  // console.log(handleFavAdd, handleFavRemove, userId, favMovie)
+export const FavoriteButton = (props) => {
+  let {handleFavAdd, handleFavRemove, userId, favMovie, favsProp} = props
 
   const handleClick = (e) => {
     e.target.classList.toggle('favorite')
-    if(!e.target.className.indexOf('favorite')){
-      console.log('Im your favorite? ')
-      handleFavAdd(userId, favMovie)
-    } else {
-      console.log('no longer your fav');
-      handleFavRemove(userId, favMovie)
-    }
-    // console.log(e.target.className)
+    let fav = !e.target.className.indexOf('favorite') ? true : false;
 
+    fav ? handleFavAdd(userId, favMovie) : handleFavRemove(userId, favMovie);
+  }
+
+  const addClass = () => {
+    return favsProp ? 'active' : '';
   }
 
   return (
-    <button onClick={(e) => {handleClick(e)}}>Favorite!</button>
+    <button className={ addClass() }
+            onClick={(e) => {handleClick(e)}}>
+      Favorite!
+    </button>
   )
 }
 

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import ApiCalls from './helper.js'
+// import ApiCalls from './helper.js'
 
 class UserSignIn extends Component{
   constructor(props) {
@@ -29,8 +29,6 @@ class UserSignIn extends Component{
     .catch(error => console.log(error, "handleSignInUser error"))
 
   }
-
-
 
   apiFetch(fetchType, body) {
     return fetch(fetchType, {

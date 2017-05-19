@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { addFav, removeFav } from '../actions/index.js';
 import { FavoriteButton } from '../components/FavoriteButton.js';
 
+
   const mapStateToProps = (state) => {
     return { userId : state.user }
   }

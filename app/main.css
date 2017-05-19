@@ -5,3 +5,7 @@
 #main {
   text-align: center;
 }
+
+.svg-hidden {
+  display: none;
+}

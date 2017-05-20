@@ -2,36 +2,43 @@ import React from 'react'
 
 export const FavoriteButton = (props) => {
   let {handleFavAdd, handleFavRemove, userId, favMovie, favsProp} = props
+  // let favClass;
+  let favMovieUpdate;
 
   const handleClick = (e) => {
+    console.log('click');
     e.target.classList.toggle('favorite')
-    let fav = !e.target.className.baseVal.indexOf('favorite') ? true : false;
+    let fav = e.target.className.baseVal.indexOf('favorite') !== -1 ? true : false;
+    console.log(fav);
 
     if (fav) {
 
-      let favMovieObj = Object.assign({}, favMovie, {user_id: userId.id})
-      handleFavAddToServer(favMovieObj);
-      handleFavAdd(userId, favMovieObj)
+      handleFavAddToServer();
+      // favMovie = Object.assign({}, favMovie, {user_id: userId.id})
+      handleFavAdd(userId, favMovieUpdate)
+      // favClass = 'favorite'
 
     } else {
 
       // handleFavDeleteFromServer()
-      handleFavRemove(userId, favMovie)
+      handleFavRemove(userId, favMovieUpdate)
+      // favClass = ''
 
     }
 
   }
 
-  const handleFavAddToServer = (favMovieUpdate) => {
-    apiFetch('api/users/favorites/new', favMovieUpdate)
+  const handleFavAddToServer = () => {
+    apiFetch('api/users/favorites/new', favMovie)
     .then(favId => {
-      favMovieUpdate = Object.assign({}, favMovieUpdate, {fav_id: favId.id})
+      console.log(favId);
+      favMovieUpdate = Object.assign({}, favMovie, {fav_id: favId.id})
     })
     .catch(error => console.log('add fav movie error: ', error))
   }
 
-  const handleFavDeleteFromServer = (favMovieObj) => {
-    apiFetch(`api/users/:${favMovieObj.user_id}/favorites/:${favMovieObj.fav_id}`, favMovieObj)
+  const handleFavDeleteFromServer = (favMovie) => {
+    apiFetch(`api/users/:${favMovie.user_id}/favorites/:${favMovie.fav_id}`, favMovie)
     .then(favId => console.log(favId))
     .catch(error => console.log('delete fav movie error: ', error))
   }
@@ -46,7 +53,7 @@ export const FavoriteButton = (props) => {
   }
 
   const addClass = () => {
-    return favsProp ? 'favorite' : '';
+    return favMovie.fav_id ? 'favorite' : '';
   }
 
   return (

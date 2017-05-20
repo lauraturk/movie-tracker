@@ -8,8 +8,10 @@ import UserContainer from '../containers/UserContainer.js'
 
 const App = () => {
 
+
   return (
     <section>
+      {/* {console.log('App')} */}
       <nav>
         <h1 className="page-title">Movie Watcher</h1>
         <Link to={'/login'}>USER</Link>

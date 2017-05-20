@@ -1,16 +1,17 @@
 body {
+  background-color: #271F30;
   margin: 0;
   padding 0;
   font-family: 'Rubik', sans-serif;
 }
 
 nav {
-  background-color: #F0EDA4;
+  /*background-color: #F0EDA4;*/
   text-align: center;
 }
 
 .page-title {
-  color: #230007;
+  color: #D0FCB3;
   font-family: 'Trirong', serif;
   font-weight: 700;
   font-size: 54px;
@@ -18,7 +19,7 @@ nav {
 }
 
 .main {
-  background-color: #EDE5E1;
+  /*background-color: #EDE5E1;*/
   margin: 0;
 }
 
@@ -29,14 +30,42 @@ nav {
   margin: 0 auto;
 }
 
-.movie {
-  height: 300px;
-  width: 200px;
+.movie-card {
+  height: 320px;
+  width: 220px;
 
   margin: 10px;
 }
 
 
-.svg-hidden {
+.hidden {
   display: none
+}
+
+.front-side {
+  height: 80%;
+}
+
+.back-side {
+  background-color: lightgrey;
+  height: 80%;
+  text-align: center;
+}
+
+.movie-title {
+  font-size: 18px;
+  width: 90%;
+  margin: 10 auto;
+}
+
+.release {
+  font-size: 16px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.overview {
+  font-size: 12px;
+  width: 90%;
+  margin: 0 auto;
 }

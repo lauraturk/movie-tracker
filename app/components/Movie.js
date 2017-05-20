@@ -4,22 +4,26 @@ import FavoriteContainer from '../containers/FavoriteContainer';
 
 
 const Movie = ({ movieData, favProp }) => {
-  // console.log(cardData);
-  const imgURL = '';
+
   const backgroundStyle = {
     backgroundImage: `url(https://image.tmdb.org/t/p/w300${movieData.poster_path})`,
     backgroundSize: 'cover'
   }
 
+  const backgroundTransparent = {
+    backgroundColor: 'red',
+    // opacity: .25%
+  }
+
   const FrontSide = () => {
     return (
-      <div className='front-side' style={backgroundStyle}></div>
+      <div className='front-side card-side'></div>
     )
   }
 
   const BackSide = () => {
     return (
-      <div className='back-side'>
+      <div className='back-side card-side'>
         <h3 className='movie-title'>{ movieData.title }</h3>
         <p className='release'>{ movieData.release_date }</p>
         <p className='overview'>{ movieData.overview } </p>
@@ -29,8 +33,7 @@ const Movie = ({ movieData, favProp }) => {
 
 
   return (
-    <div className='movie-card'>
-      <FrontSide />
+    <div className='movie-card' style={backgroundStyle}>
       <BackSide />
       <FavoriteContainer  favMovie={movieData}
                           favsProp={ favProp }/>

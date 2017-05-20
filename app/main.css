@@ -20,36 +20,68 @@ nav {
 
 .main {
   /*background-color: #EDE5E1;*/
-  margin: 0;
+  margin: 0 auto;
 }
 
 #movie-grid-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
   margin: 0 auto;
+  position: relative;
+  /*z-index: 1;*/
+  /*perspective: 1000px;*/
 }
 
 .movie-card {
   height: 320px;
   width: 220px;
-
   margin: 10px;
+  z-index: 0;
+  transform-style: preserve-3d;
+  transition: all .1s linear;
+  perspective: 1000px;
 }
 
+/*.movie-card:hover {
+  transform: rotateY(180deg);
+}*/
 
 .hidden {
   display: none
 }
 
-.front-side {
-  height: 80%;
+.movie-card:hover > .back-side {
+  /*opacity: 0;*/
+  visibility: visible;
+  z-index: 0;
+  /*transition: opacity 1s ease-in, visibility .75s linear;*/
+}
+
+.movie-card:hover {
+  opacity: .2;
+  transition: opacity 1s ease-in, visibility .75s linear;
+}
+
+.card-side {
+ position: absolute;
+ top: 0;
+ overflow: hidden;
+ backface-visibility: hidden;
+ box-shadow: 0 10px 35px rgba(50,50,93,.1),0 2px 15px rgba(0,0,0,.07);
 }
 
 .back-side {
-  background-color: lightgrey;
+  height: 100%;
+  width: 100%;
+  visibility: hidden;
+  background-color: #D0FCB3;
+  opacity: .25%;
   height: 80%;
   text-align: center;
+  z-index: 1;
+  /*transform: rotateY(180deg);*/
 }
 
 .movie-title {

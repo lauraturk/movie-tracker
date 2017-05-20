@@ -3,7 +3,7 @@ import FavoriteContainer from '../containers/FavoriteContainer';
 // import PropTypes from 'prop-types';
 
 const Movie = ({ movieData, favProp }) => {
-  // console.log(cardData);
+  // console.log(movieData);
   const imgURL = '';
   const backgroundStyle = {
     backgroundImage: `url(https://image.tmdb.org/t/p/w300${movieData.poster_path})`,
@@ -11,7 +11,7 @@ const Movie = ({ movieData, favProp }) => {
   }
 
   const hoverStyle = {
-    
+
   }
 
   return (

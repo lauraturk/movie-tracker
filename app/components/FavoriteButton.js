@@ -2,6 +2,7 @@ import React from 'react'
 
 export const FavoriteButton = (props) => {
   let {handleFavAdd, handleFavRemove, userId, favMovie, favsProp} = props
+  console.log(userId)
 
   const handleClick = (e) => {
     e.target.classList.toggle('favorite')

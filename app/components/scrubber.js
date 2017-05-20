@@ -7,6 +7,8 @@ export const cleanMovies = (rawMovies) => {
       release_date: movie.release_date,
       vote_average: movie.vote_average,
       overview: movie.overview,
+      // user_id: null,
+      fav_id: null,
     };
   })
 

@@ -20,7 +20,6 @@ class UserSignIn extends Component{
 
   handleSignInUser() {
     let { handleSignIn, history } = this.props
-    console.log(history.history)
     this.apiFetch('/api/users/', {email: this.state.email, password: this.state.password})
     .then(responseId => {
       handleSignIn(responseId.data)

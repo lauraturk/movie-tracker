@@ -4,7 +4,10 @@ import { FavoriteButton } from '../components/FavoriteButton.js';
 
 
   const mapStateToProps = (state) => {
-    return { userId : state.user }
+    return {
+      userId : state.user,
+      favoriteArr: state.favorites
+    }
   }
 
   const mapDispatchToProps = (dispatch) => {

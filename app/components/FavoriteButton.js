@@ -1,45 +1,49 @@
 import React from 'react'
 
 export const FavoriteButton = (props) => {
-  let {handleFavAdd, handleFavRemove, userId, favMovie, favsProp} = props
-  // let favClass;
+  let {handleFavAdd, handleFavRemove, userId, favMovie, favsProp, favoriteArr} = props
   let favMovieUpdate;
 
   const handleClick = (e) => {
-    console.log('click');
+    //if user is not signed in, bring them to sign in from here
+    console.log('before toggle: ', e.target.className.baseVal);
     e.target.classList.toggle('favorite')
+    console.log('after toggle: ', e.target.className.baseVal);
     let fav = e.target.className.baseVal.indexOf('favorite') !== -1 ? true : false;
     console.log(fav);
 
     if (fav) {
 
+      console.log('in add section');
       handleFavAddToServer();
-      // favMovie = Object.assign({}, favMovie, {user_id: userId.id})
-      handleFavAdd(userId, favMovieUpdate)
-      // favClass = 'favorite'
 
     } else {
 
-      // handleFavDeleteFromServer()
-      handleFavRemove(userId, favMovieUpdate)
-      // favClass = ''
+      console.log('in delete section');
+      handleFavDeleteFromServer()
 
     }
 
   }
 
   const handleFavAddToServer = () => {
+    favMovie.user_id = userId.id;
     apiFetch('api/users/favorites/new', favMovie)
     .then(favId => {
-      console.log(favId);
-      favMovieUpdate = Object.assign({}, favMovie, {fav_id: favId.id})
+      delete favMovie.user_id
+      handleFavAdd(userId, favMovie)
     })
     .catch(error => console.log('add fav movie error: ', error))
   }
 
-  const handleFavDeleteFromServer = (favMovie) => {
-    apiFetch(`api/users/:${favMovie.user_id}/favorites/:${favMovie.fav_id}`, favMovie)
-    .then(favId => console.log(favId))
+  const handleFavDeleteFromServer = () => {
+    fetch(`api/users/${userId.id}/favorites/${favMovie.movie_id}`, {
+      method: 'DELETE',
+      headers: { 'Content-Type':'application/json' }
+    })
+    .then(response => response.json())
+    .then(deleted => console.log("deleted response: ", deleted))
+    .then(handleFavRemove(userId, favMovie))
     .catch(error => console.log('delete fav movie error: ', error))
   }
 
@@ -53,7 +57,9 @@ export const FavoriteButton = (props) => {
   }
 
   const addClass = () => {
-    return favMovie.fav_id ? 'favorite' : '';
+    //if favMovie is in favoritesArr, return 'favorite'
+    console.log('arr:', favoriteArr.indexOf(favMovie));
+    return favoriteArr.indexOf(favMovie) !== -1 ? 'favorite' : '';
   }
 
   return (
@@ -67,7 +73,6 @@ export const FavoriteButton = (props) => {
   )
 
 }
-
 
 
 {/* <object type="image/svg+xml" alt="heart data" data="./images/heart-svg.svg">favorites button</object> */}

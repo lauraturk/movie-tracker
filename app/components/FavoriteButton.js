@@ -5,14 +5,48 @@ export const FavoriteButton = (props) => {
 
   const handleClick = (e) => {
     e.target.classList.toggle('favorite')
-    // console.log(e.target.className.baseVal);
     let fav = !e.target.className.baseVal.indexOf('favorite') ? true : false;
 
-    fav ? handleFavAdd(userId, favMovie) : handleFavRemove(userId, favMovie);
+    if (fav) {
+
+      let favMovieObj = Object.assign({}, favMovie, {user_id: userId.id})
+      handleFavAddToServer(favMovieObj);
+      handleFavAdd(userId, favMovieObj)
+
+    } else {
+
+      // handleFavDeleteFromServer()
+      handleFavRemove(userId, favMovie)
+
+    }
+
+  }
+
+  const handleFavAddToServer = (favMovieUpdate) => {
+    apiFetch('api/users/favorites/new', favMovieUpdate)
+    .then(favId => {
+      favMovieUpdate = Object.assign({}, favMovieUpdate, {fav_id: favId.id})
+    })
+    .catch(error => console.log('add fav movie error: ', error))
+  }
+
+  const handleFavDeleteFromServer = (favMovieObj) => {
+    apiFetch(`api/users/:${favMovieObj.user_id}/favorites/:${favMovieObj.fav_id}`, favMovieObj)
+    .then(favId => console.log(favId))
+    .catch(error => console.log('delete fav movie error: ', error))
+  }
+
+  const apiFetch = (fetchType, body) => {
+    return fetch(fetchType, {
+      method: 'POST',
+      body: JSON.stringify(body),
+      headers: { 'Content-Type':'application/json' },
+    })
+    .then(response => response.json())
   }
 
   const addClass = () => {
-    return favsProp ? 'active' : '';
+    return favsProp ? 'favorite' : '';
   }
 
   return (

@@ -18,8 +18,7 @@ const Movie = ({ movieData, favProp }) => {
     <div className='movie' style={backgroundStyle}>
       <h3>Title: { movieData.title }</h3>
       <h3>Release Date: { movieData.release_date }</h3>
-      <FavoriteContainer  favMovie={movieData}
-                          favsProp={ favProp }/>
+      <FavoriteContainer  favMovie={movieData}/>
     </div>
   )
 

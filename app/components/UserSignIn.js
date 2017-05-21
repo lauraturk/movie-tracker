@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-// import ApiCalls from './helper.js'
+import ApiCalls from './ApiHelper.js'
 
 class UserSignIn extends Component{
   constructor(props) {
@@ -13,29 +13,34 @@ class UserSignIn extends Component{
   }
 
   handleNewUser() {
-    this.apiFetch('/api/users/new', this.state)
+    ApiCalls.logInFetch('/api/users/new', this.state)
     .then(responseId => this.handleSignInUser())
     .catch(error => console.log(error, "new user error"))
   }
 
   handleSignInUser() {
-    let { handleSignIn, history } = this.props
-    this.apiFetch('/api/users/', {email: this.state.email, password: this.state.password})
+    let { handleSignIn, loadUserFavorites, history } = this.props
+
+    ApiCalls.logInFetch('/api/users/',
+      {email: this.state.email, password: this.state.password}
+    )
     .then(responseId => {
       handleSignIn(responseId.data)
+      this.retrieveFavs(responseId.data)
       history.history.replace('/')
     })
+    .then(loadUserFavorites())
     .catch(error => console.log(error, "handleSignInUser error"))
 
   }
 
-  apiFetch(fetchType, body) {
-    return fetch(fetchType, {
-      method: 'POST',
-      body: JSON.stringify(body),
-      headers: { 'Content-Type':'application/json' },
-    })
+  retrieveFavs(userData) {
+    let { loadUserFavorites } = this.props
+
+    fetch(`api/users/${userData.id}/favorites/`)
     .then(response => response.json())
+    .then(favArrObj => {loadUserFavorites(favArrObj.data)})
+    .catch(error => console.log('retrieve favorites error: ', error))
   }
 
   render() {

@@ -1,4 +1,4 @@
-import ApiCalls from '../components/helper.js';
+import ApiCalls from '../components/ApiHelper.js';
 import { cleanMovies } from '../components/scrubber.js';
 
 export const loadMovies = () => {
@@ -18,22 +18,6 @@ export const addMovies = (moviesArray) => {
     moviesArray
   }
 }
-
-// export const loadFavMoviesInit = () => {
-//   return (dispatch) => {
-//     return ApiCalls.getFavMoviesInit(userId)
-//       .then(favMovies => {dispatch(addFaveInit(favMovies))})
-//       .catch(error => { throw(error) });
-//   };
-// }
-//
-// export const addFavInit = (userId favArray) => {
-//   return {
-//     type: 'ADD_FAV_ARRAY_INIT',
-//     favArray,
-//     userId
-//   }
-// }
 
 export const addFav = (userId, favMovie) => {
   return {
@@ -55,5 +39,12 @@ export const signInUser = (userId) => {
   return {
     type: 'SIGN_IN_USER',
     userId,
+  }
+}
+
+export const addInitialFavs = (initialFavsArray) => {
+  return {
+    type: 'LOAD_INITIAL_FAVS',
+    initialFavsArray
   }
 }

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { signInUser } from '../actions/index.js';
+import { signInUser, addInitialFavs } from '../actions/index.js';
 import UserSignIn from '../components/UserSignIn.js';
 
   const mapStateToProps = (state) => {
@@ -10,8 +10,12 @@ import UserSignIn from '../components/UserSignIn.js';
     return {
       handleSignIn: (userId) => {
         dispatch(signInUser(userId))
+      },
+      loadUserFavorites: (initialFavsArray) => {
+        dispatch(addInitialFavs(initialFavsArray))
       }
     }
+
   }
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserSignIn)

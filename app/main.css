@@ -11,11 +11,6 @@ body {
   height: 100%;
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-}
-
 .page-title {
   color: #8D99AE;
   display: inline-block;
@@ -26,6 +21,33 @@ nav {
   width: 500px
 }
 
+.main {
+  margin: 0 auto;
+}
+
+svg path {
+  stroke-width: 4px;
+  stroke: #EDF2F4
+}
+
+.icon {
+  margin: 0 20px;
+}
+
+.selected {
+  color: #8e98a7;
+}
+
+/****** navigation *******/
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.selected > svg path {
+  stroke: #EF233C;
+}
+
 .navBar {
   display: inline-block;
   margin-top: 30px;
@@ -33,52 +55,7 @@ nav {
   width: 250px;
 }
 
-.main {
-  margin: 0 auto;
-}
-
-/*.new-user-form, .sign-in-form {
-  display: flex;
-  flex-direction: column;
-}*/
-
-input, input[type='submit']{
-  height: 40px;
-  margin-top: 20px;
-  width: 100%;
-}
-
-button {
-  height: 40px;
-  width: 90%;
-}
-
-.form-navlinks {
-  text-align: center;
-  background-color: #edf2f4;
-  color: #2b2d42;
-  display: block;
-  height: 40px;
-  margin: 15px 15px;
-  padding: 10px;
-  text-decoration: none;
-  width: 90%;
-}
-
-.forms {
-  display: flex;
-  flex-direction: column;
-  background-color: #8d99ae;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 60%;
-  height: 60%;
-  justify-content: center;
-  align-items: center;
-}
-
+/****** movie cards ******/
 #movie-grid-container {
   display: flex;
   flex-direction: row;
@@ -93,47 +70,67 @@ button {
   width: 220px;
   margin: 10px;
   z-index: 0;
-  transform-style: preserve-3d;
-  transition: all .1s linear;
   perspective: 1000px;
 }
+
+.movie-card:hover > .back-side {
+  opacity: .80;
+  visibility: visible;
+  z-index: 1;
+}
+
+.movie-card:hover > .favorite-button {
+  opacity: 1;
+  visibility: visible;
+  z-index: 9999;
+}
+
+.back-side {
+  background-color: #8d99ae;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  visibility: hidden;
+  width: 100%;
+  z-index: 1;
+}
+
+.favorite-button {
+  position: relative;
+  top: 264px;
+  left: 40%;
+  visibility: hidden;
+  width: 100%;
+  z-index: '1000';
+}
+
+.favorite-button {
+  position: relative;
+  top: 264px;
+  left: 40%;
+  visibility: hidden;
+  width: 100%;
+  z-index: '1000';
+}
+
+.favorite-button:hover svg path {
+  stroke: #EF233C;
+}
+
+.favorite svg path {
+  fill: #EF233C;
+  stroke: #EF233C;
+}
+
+/*.favorite {
+  box-shadow: 2px 2px 2px 2px 2px 2px 2px 2px #EF233C;
+}*/
 
 .hidden {
   display: none
 }
-
-.movie-card:hover > .back-side {
-  /*opacity: 0;*/
-  visibility: visible;
-  z-index: 0;
-  /*transition: opacity 1s ease-in, visibility .75s linear;*/
-}
-
-.movie-card:hover {
-  opacity: .2;
-  transition: opacity 1s ease-in, visibility .75s linear;
-}
-
-.card-side {
- position: absolute;
- top: 0;
- overflow: hidden;
- backface-visibility: hidden;
- box-shadow: 0 10px 35px rgba(50,50,93,.1),0 2px 15px rgba(0,0,0,.07);
-}
-
-.back-side {
-  height: 100%;
-  width: 100%;
-  visibility: hidden;
-  background-color: #D0FCB3;
-  opacity: .25%;
-  height: 80%;
-  text-align: center;
-  z-index: 1;
-  /*transform: rotateY(180deg);*/
-}
-
 .movie-title {
   font-size: 18px;
   width: 90%;
@@ -152,27 +149,61 @@ button {
   margin: 0 auto;
 }
 
-.selected {
-  color: #EF233C;
+/****** sign in forms *****/
+input, input[type='submit']{
+  height: 40px;
+  margin-top: 20px;
+  width: 100%;
+  border: none;
+  color: #2b2d42;
+  background-color: #edf2f4;
+  width: 80%;
 }
 
-.selected > svg path {
-  stroke: #EF233C;
+.form-navlinks {
+  text-align: center;
+  background-color: #edf2f4;
+  color: #2b2d42;
+  display: block;
+  height: 40px;
+  margin: 15px 15px;
+  padding: 10px;
+  text-decoration: none;
+  width: 90%;
 }
 
-svg path {
-  stroke-width: 4px;
-  stroke: #EDF2F4
+.form-navlinks:hover {
+  background-color: #d90429;
+  color: #edf2f4;
 }
 
-.icon {
-  margin: 0 20px;
+.forms-field {
+  display: flex;
+  flex-direction: column;
+  background-color: #8d99ae;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 65%;
+  height: 65%;
+  justify-content: center;
+  align-items: center;
 }
+
+.form {
+  text-align: center;
+}
+
 
 @media (max-width: 845px) {
   nav {
     flex-direction: column;
     justify-content: center;
+  }
+
+  .navBar {
+    margin: 0 auto;
   }
 
   .page-title {
@@ -181,7 +212,8 @@ svg path {
     text-align: center;
   }
 
-  .navBar {
-    margin: 0 auto;
+
+  .forms-field {
+    top: 55%;
   }
 }

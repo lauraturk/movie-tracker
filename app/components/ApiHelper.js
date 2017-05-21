@@ -8,7 +8,17 @@ export default class ApiCalls {
     .then(movieObj => movieObj)
   }
 
-  static logInFetch(email, password) {
+  static newUserFetch({name, email, password}) {
+    return fetch('/api/users/new',
+    {
+      method: 'POST',
+      body: JSON.stringify({name: name, email: email, password: password}),
+      headers: { 'Content-Type':'application/json' },
+    })
+    .then(response => response.json())
+  }
+
+  static logInFetch({email, password}) {
     return fetch('/api/users/',
       {
         method: 'POST',

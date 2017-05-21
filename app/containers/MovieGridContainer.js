@@ -5,7 +5,8 @@ import MovieGrid from '../components/MovieGrid';
     let movies = favoriteProp ? state.favorites : state.movies;
 
     return {
-      movieList : movies
+      movieList : movies,
+      favoriteArr: state.favorites
     }
   }
 

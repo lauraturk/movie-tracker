@@ -14,7 +14,7 @@ class UserSignIn extends Component{
   }
 
   handleNewUser() {
-    ApiCalls.logInFetch('/api/users/new', this.state)
+    ApiCalls.newUserFetch(this.state)
     .then(responseId => this.handleSignInUser())
     .catch(error => console.log(error, "new user error"))
   }
@@ -22,7 +22,7 @@ class UserSignIn extends Component{
   handleSignInUser() {
     let { handleSignIn, loadUserFavorites, history } = this.props
 
-    ApiCalls.logInFetch(this.state.email, this.state.password)
+    ApiCalls.logInFetch(this.state)
     .then(responseId => {
       handleSignIn(responseId.data)
       history.history.replace('/')
@@ -45,11 +45,11 @@ class UserSignIn extends Component{
   }
 
   render() {
-    let { userId, handleSignOut, clearAllFavorites } = this.props;
+    let { userId, handleSignOut, clearAllFavorites, history } = this.props;
 
     const newUserSignInForm = () => {
       return(
-        <form className={'new-user-form'}>
+        <form className={'form'}>
           <input  value={this.state.name}
                   placeholder="Name"
                   onChange={ e => this.setState({ name: e.target.value} )} />
@@ -72,7 +72,7 @@ class UserSignIn extends Component{
 
     const currentUserSignForm = () => {
       return (
-        <form className={'sign-in-form'}>
+        <form className={'form'}>
           <input  value={this.state.email}
                   placeholder="email"
                   onChange={ e => this.setState({ email: e.target.value} )} />
@@ -92,23 +92,21 @@ class UserSignIn extends Component{
 
     const signOutButton = () => {
       return (
-        <div className="form-navlinks" onClick={() => {
+        <a href='/' className="form-navlinks" onClick={() => {
                   handleSignOut();
-                  clearAllFavorites()}}>Sign Out</div>
+                  clearAllFavorites()}
+                  }>Sign Out</a>
       )
     }
 
     return(
-      <div className="forms">
-      <Route path='/login/newUser' render={ () => newUserSignInForm()}/>
-      <Route path='/login/signIn' render={ () => currentUserSignForm()}/>
+      <div className='forms-field'>
+      <Route exact path='/login/newUser' render={ () => newUserSignInForm()}/>
+      <Route exact path='/login/signIn' render={ () => currentUserSignForm()}/>
 
         <NavLink to='/login/newUser' activeClassName="selected" className="form-navlinks">Create An Account</NavLink>
         <NavLink to='/login/signIn' activeClassName="selected" className="form-navlinks">Sign In</NavLink>
         <Route exact path='/login' render={ () => signOutButton()}/>
-
-
-
       </div>
     )
   }

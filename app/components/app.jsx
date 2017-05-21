@@ -9,10 +9,8 @@ const App = () => {
 
   return (
     <section>
-      {/* {console.log('App')} */}
       <nav>
         <h1 className="page-title">Movie Watcher</h1>
-        <Link to={'/login'}>USER</Link>
         <NavBar />
       </nav>
       <main className="main">
@@ -22,15 +20,15 @@ const App = () => {
           )
          } } />
 
-        <Route exact path='/' render={ () => {
+        <Route exact path='/' render={ (history) => {
           return (
-            <MovieGridContainer favoriteProp={ false } />
+            <MovieGridContainer favoriteProp={ false } history={history} />
           )
          } } />
 
-        <Route exact path='/favorites' render={ () => {
+        <Route exact path='/favorites' render={ (history) => {
           return (
-            <MovieGridContainer favoriteProp={ true } />
+            <MovieGridContainer favoriteProp={ true } history={history}/>
           )
          } } />
       </main>

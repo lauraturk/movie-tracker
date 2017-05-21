@@ -2,7 +2,7 @@ import * as actions from '../../actions';
 
 describe('actions', () => {
 
-  const movieArray = [{
+  const moviesArray = [{
                         movie_id: 283995,
                         title: "Guardians of the Galaxy Vol. 2",
                         poster_path: "/y4MBh0EjBlMuOzv9axM4qJlmhzz.jpg",
@@ -14,11 +14,9 @@ describe('actions', () => {
 
   it('should create an action to add movies array', () => {
 
-    const moviesArray = movieArray
-
     const expectedAction = {
       type: 'ADD_MOVIES',
-      moviesArray:  movieArray
+      moviesArray:  moviesArray
     }
 
     expect(actions.addMovies(moviesArray)).toEqual(expectedAction)
@@ -26,14 +24,14 @@ describe('actions', () => {
 
   it('should create an action to add movies to favorites', () => {
 
-    const favMovie = movieArray
+    const favMovie = moviesArray
 
     const userId = 1
 
     const expectedAction = {
       type: 'ADD_FAV',
       userId: 1,
-      favMovie:  movieArray
+      favMovie:  moviesArray
     }
 
     expect(actions.addFav(userId, favMovie)).toEqual(expectedAction)
@@ -41,14 +39,14 @@ describe('actions', () => {
 
   it('should create an action to remove movies from favorites', () => {
 
-    const favMovie = movieArray
+    const favMovie = moviesArray
 
     const userId = 1
 
     const expectedAction = {
       type: 'REMOVE_FAV',
       userId: 1,
-      favMovie:  movieArray
+      favMovie:  moviesArray
     }
 
     expect(actions.removeFav(userId, favMovie)).toEqual(expectedAction)
@@ -64,6 +62,34 @@ describe('actions', () => {
     }
 
     expect(actions.signInUser(userId)).toEqual(expectedAction)
+  })
+
+  it('should create an action to sign a user out', () => {
+
+    const expectedAction = {
+      type: 'SIGN_OUT_USER'
+    }
+
+    expect(actions.signOutUser()).toEqual(expectedAction)
+  })
+
+  it('should create an action to upload the users favorites on sign in', () => {
+
+    const expectedAction = {
+      type: 'LOAD_INITIAL_FAVS',
+      initialFavsArray: moviesArray
+    }
+
+    expect(actions.addInitialFavs(initialFavsArray)).toEqual(expectedAction)
+  })
+
+  it('should create an action to clear a favorite', () => {
+
+    const expectedAction = {
+      type: 'CLEAR_FAVS'
+    }
+
+    expect(actions.clearFavorites()).toEqual(expectedAction)
   })
 
 })

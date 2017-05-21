@@ -80,7 +80,7 @@ describe('actions', () => {
       initialFavsArray: moviesArray
     }
 
-    expect(actions.addInitialFavs(initialFavsArray)).toEqual(expectedAction)
+    expect(actions.addInitialFavs(moviesArray)).toEqual(expectedAction)
   })
 
   it('should create an action to clear a favorite', () => {

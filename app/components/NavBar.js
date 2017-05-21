@@ -10,7 +10,7 @@ export const NavBar = () => {
       <NavLink exact to='/' activeClassName='selected' className='icon'>
         <svg width="40" height="46" viewBox="0 0 40 46" xmlns="http://www.w3.org/2000/svg"><g stroke="#43484D" strokeWidth="4" fill="none" fillRule="evenodd" strokeLinejoin="round"><path d="M13 44H2.876C2.392 44 2 43.716 2 43.26V18M38 19v24.26c0 .456-.392.74-.876.74H26"/><path strokeLinecap="round" d="M38 18.887L20 2 2 18.43"/><path d="M14 46V31h12v15"/></g></svg>
       </NavLink>
-      <NavLink to={'/login'} activeClassName='selected' className='icon'>
+      <NavLink to='/login/signIn' activeClassName='selected' className='icon'>
         <svg width="45" height="46" viewBox="0 0 45 46" xmlns="http://www.w3.org/2000/svg"><g stroke="#43484D" strokeWidth="4" fill="none" fillRule="evenodd" strokeLinecap="round"><path d="M42.25 36c0-6.627-8.954-12-20-12s-20 5.373-20 12"/><path d="M22.25 24.01c6.075 0 11-4.926 11-11 0-6.076-4.925-11-11-11s-11 4.924-11 11c0 6.074 4.925 11 11 11zM42 36v6.565c0 .586-.2 1.435-.78 1.435H3.28C2.71 44 2 43.144 2 42.565V36"/></g></svg>
       </NavLink>
     </div>

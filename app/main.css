@@ -19,7 +19,6 @@ nav {
 .page-title {
   color: #8D99AE;
   display: inline-block;
-  /*font-family: 'Trirong', serif;*/
   font-weight: 700;
   font-size: 54px;
   margin-top: 30px;
@@ -35,8 +34,49 @@ nav {
 }
 
 .main {
-  /*background-color: #EDE5E1;*/
   margin: 0 auto;
+}
+
+/*.new-user-form, .sign-in-form {
+  display: flex;
+  flex-direction: column;
+}*/
+
+input, input[type='submit']{
+  height: 40px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+button {
+  height: 40px;
+  width: 90%;
+}
+
+.form-navlinks {
+  text-align: center;
+  background-color: #edf2f4;
+  color: #2b2d42;
+  display: block;
+  height: 40px;
+  margin: 15px 15px;
+  padding: 10px;
+  text-decoration: none;
+  width: 90%;
+}
+
+.forms {
+  display: flex;
+  flex-direction: column;
+  background-color: #8d99ae;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 60%;
+  justify-content: center;
+  align-items: center;
 }
 
 #movie-grid-container {
@@ -46,8 +86,6 @@ nav {
   justify-content: center;
   margin: 0 30px;
   position: relative;
-  /*z-index: 1;*/
-  /*perspective: 1000px;*/
 }
 
 .movie-card {
@@ -59,10 +97,6 @@ nav {
   transition: all .1s linear;
   perspective: 1000px;
 }
-
-/*.movie-card:hover {
-  transform: rotateY(180deg);
-}*/
 
 .hidden {
   display: none

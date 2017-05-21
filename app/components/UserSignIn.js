@@ -47,29 +47,9 @@ class UserSignIn extends Component{
   render() {
     let { userId, handleSignOut, clearAllFavorites } = this.props;
 
-      // const modalStyle = {
-      //   position: 'absolute',
-      //   top: '50%',
-      //   left: '50%',
-      //   transform: 'translate(-50%, -50%)',
-      //   zIndex: '9999',
-      //   background: '#fffF'
-      // }
-
-      // const backdropStyle = {
-      //   position: 'absolute',
-      //   width: '100%',
-      //   height: '100%',
-      //   top: '0px',
-      //   left: '0px',
-      //   zIndex: '9998',
-      //   background: 'rgba(0, 0, 0, 0.3)'
-      // }
-
-
     const newUserSignInForm = () => {
       return(
-        <form>
+        <form className={'new-user-form'}>
           <input  value={this.state.name}
                   placeholder="Name"
                   onChange={ e => this.setState({ name: e.target.value} )} />
@@ -92,7 +72,7 @@ class UserSignIn extends Component{
 
     const currentUserSignForm = () => {
       return (
-        <form>
+        <form className={'sign-in-form'}>
           <input  value={this.state.email}
                   placeholder="email"
                   onChange={ e => this.setState({ email: e.target.value} )} />
@@ -110,18 +90,25 @@ class UserSignIn extends Component{
       )
     }
 
+    const signOutButton = () => {
+      return (
+        <div className="form-navlinks" onClick={() => {
+                  handleSignOut();
+                  clearAllFavorites()}}>Sign Out</div>
+      )
+    }
+
     return(
-      <div>
+      <div className="forms">
       <Route path='/login/newUser' render={ () => newUserSignInForm()}/>
       <Route path='/login/signIn' render={ () => currentUserSignForm()}/>
 
-        <NavLink to='/login/newUser' activeClassName="selected">Create An Account</NavLink>
-        <NavLink to='/login/signIn' activeClassName="selected">Sign In</NavLink>
+        <NavLink to='/login/newUser' activeClassName="selected" className="form-navlinks">Create An Account</NavLink>
+        <NavLink to='/login/signIn' activeClassName="selected" className="form-navlinks">Sign In</NavLink>
+        <Route exact path='/login' render={ () => signOutButton()}/>
 
 
-        <div onClick={() => {
-                  handleSignOut();
-                  clearAllFavorites()}}>Sign Out</div>
+
       </div>
     )
   }

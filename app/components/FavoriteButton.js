@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const FavoriteButton = (props) => {
-  let {handleFavAdd, handleFavRemove, userId, favMovie, favoriteArr} = props
+  let {handleFavAdd, handleFavRemove, userId, favMovie, favoriteArr, history} = props
 
   let favMovieUpdate;
 
@@ -9,7 +9,7 @@ export const FavoriteButton = (props) => {
   const handleClick = (e) => {
 
     if (!userId.id){
-      console.log("USER NOT SIGN IN, do stuff here to fix that");
+      history.history.push('/login')
     }
 
     e.target.classList.toggle('favorite')

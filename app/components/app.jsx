@@ -22,15 +22,15 @@ const App = () => {
           )
          } } />
 
-        <Route exact path='/' render={ () => {
+        <Route exact path='/' render={ (history) => {
           return (
-            <MovieGridContainer favoriteProp={ false } />
+            <MovieGridContainer favoriteProp={ false } history={history} />
           )
          } } />
 
-        <Route exact path='/favorites' render={ () => {
+        <Route exact path='/favorites' render={ (history) => {
           return (
-            <MovieGridContainer favoriteProp={ true } />
+            <MovieGridContainer favoriteProp={ true } history={history}/>
           )
          } } />
       </main>

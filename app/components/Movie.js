@@ -3,7 +3,7 @@ import FavoriteContainer from '../containers/FavoriteContainer';
 // import PropTypes from 'prop-types';
 
 
-const Movie = ({ movieData, favProp }) => {
+const Movie = ({ movieData, favProp, history }) => {
 
   const backgroundStyle = {
     backgroundImage: `url(https://image.tmdb.org/t/p/w300${movieData.poster_path})`,
@@ -27,6 +27,9 @@ const Movie = ({ movieData, favProp }) => {
         <h3 className='movie-title'>{ movieData.title }</h3>
         <p className='release'>{ movieData.release_date }</p>
         <p className='overview'>{ movieData.overview } </p>
+        <FavoriteContainer  favMovie={movieData}
+                            favsProp={ favProp }
+                            history={history}/>
       </div>
     )
   }
@@ -36,7 +39,8 @@ const Movie = ({ movieData, favProp }) => {
     <div className='movie-card' style={backgroundStyle}>
       <BackSide />
       <FavoriteContainer  favMovie={movieData}
-                          favsProp={ favProp }/>
+                          favsProp={ favProp }
+                          history={history}/>
     </div>
   )
 

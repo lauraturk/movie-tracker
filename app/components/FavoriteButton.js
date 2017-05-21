@@ -1,64 +1,53 @@
 import React from 'react'
 
 export const FavoriteButton = (props) => {
-  let {handleFavAdd, handleFavRemove, userId, favMovie, favsProp, favoriteArr} = props
+  let {handleFavAdd, handleFavRemove, userId, favMovie, favoriteArr} = props
   let favMovieUpdate;
 
   const handleClick = (e) => {
-    //if user is not signed in, bring them to sign in from here
-    console.log('before toggle: ', e.target.className.baseVal);
-    e.target.classList.toggle('favorite')
-    console.log('after toggle: ', e.target.className.baseVal);
-    let fav = e.target.className.baseVal.indexOf('favorite') !== -1 ? true : false;
-    console.log(fav);
 
-    if (fav) {
-
-      console.log('in add section');
-      handleFavAddToServer();
-
-    } else {
-
-      console.log('in delete section');
-      handleFavDeleteFromServer()
-
+    if (!userId.id){
+      console.log("USER NOT SIGN IN, do stuff here to fix that");
     }
+
+    e.target.classList.toggle('favorite')
+    let fav = e.target.className.baseVal.indexOf('favorite') !== -1 ? true : false;
+
+    (fav) ? handleAdd() : handleDelete()
 
   }
 
-  const handleFavAddToServer = () => {
-    favMovie.user_id = userId.id;
-    apiFetch('api/users/favorites/new', favMovie)
+  const handleAdd = () => {
+    console.log('in add section');
+    favMovie.user_id = userId.id; //add userId to object for API call
+    return fetch('api/users/favorites/new',
+      {
+        method: 'POST',
+        body: JSON.stringify(favMovie),
+        headers: { 'Content-Type':'application/json' }
+      })
+    .then(response => response.json())
     .then(favId => {
-      delete favMovie.user_id
+      delete favMovie.user_id //remove userId from object- no longer needed
       handleFavAdd(userId, favMovie)
     })
     .catch(error => console.log('add fav movie error: ', error))
   }
 
-  const handleFavDeleteFromServer = () => {
-    fetch(`api/users/${userId.id}/favorites/${favMovie.movie_id}`, {
-      method: 'DELETE',
-      headers: { 'Content-Type':'application/json' }
-    })
+  const handleDelete = () => {
+    console.log('in delete section');
+    fetch(`api/users/${userId.id}/favorites/${favMovie.movie_id}`,
+      {
+        method: 'DELETE',
+        headers: { 'Content-Type':'application/json' }
+      })
     .then(response => response.json())
-    .then(deleted => console.log("deleted response: ", deleted))
+    // .then(deleted => console.log("deleted response: ", deleted))
     .then(handleFavRemove(userId, favMovie))
     .catch(error => console.log('delete fav movie error: ', error))
   }
 
-  const apiFetch = (fetchType, body) => {
-    return fetch(fetchType, {
-      method: 'POST',
-      body: JSON.stringify(body),
-      headers: { 'Content-Type':'application/json' },
-    })
-    .then(response => response.json())
-  }
-
   const addClass = () => {
-    //if favMovie is in favoritesArr, return 'favorite'
-    console.log('arr:', favoriteArr.indexOf(favMovie));
     return favoriteArr.indexOf(favMovie) !== -1 ? 'favorite' : '';
   }
 

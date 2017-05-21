@@ -13,6 +13,9 @@ export const favorites = (state=[], action) => {
     case 'LOAD_INITIAL_FAVS':
       return action.initialFavsArray || [];
 
+    case 'CLEAR_FAVS':
+      return state = [];
+
     default:
       return state;
   }

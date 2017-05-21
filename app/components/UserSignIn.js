@@ -44,7 +44,7 @@ class UserSignIn extends Component{
   }
 
   render() {
-    let { userId } = this.props;
+    let { userId, handleSignOut, clearAllFavorites } = this.props;
     return(
       <div>
         <form>
@@ -79,6 +79,8 @@ class UserSignIn extends Component{
             this.handleNewUser()
           }}/>
         </form>
+        <button onClick={() => {handleSignOut();
+        clearAllFavorites()}}>Sign Out</button>
       </div>
     )
   }

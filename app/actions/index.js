@@ -40,11 +40,11 @@ export const signInUser = (userId) => {
     type: 'SIGN_IN_USER',
     userId,
   }
+}
 
-export const signOutUser = (userId) => {
+export const signOutUser = () => {
   return {
-    type: 'SIGN_OUT_USER',
-    userId,
+    type: 'SIGN_OUT_USER'
   }
 }
 
@@ -52,5 +52,11 @@ export const addInitialFavs = (initialFavsArray) => {
   return {
     type: 'LOAD_INITIAL_FAVS',
     initialFavsArray
+  }
+}
+
+export const clearFavorites = () => {
+  return {
+    type: 'CLEAR_FAVS'
   }
 }

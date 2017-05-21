@@ -8,14 +8,13 @@ export const FavoriteButton = (props) => {
 
 
   const handleClick = (e) => {
-
     if (!userId.id) { history.history.push('/login/signIn') }
 
     e.target.classList.toggle('favorite')
+
     let fav = e.target.className.baseVal.indexOf('favorite') !== -1 ? true : false;
 
     (fav) ? handleAdd() : handleDelete()
-
   }
 
   const handleAdd = () => {
@@ -41,7 +40,7 @@ export const FavoriteButton = (props) => {
   }
 
   return (
-  <label >
+  <label className='favorite-button'>
     <input className="hidden"/>
     <svg  className={ addClass() }
           onClick={(e) => {handleClick(e)}}

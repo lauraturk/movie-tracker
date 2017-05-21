@@ -3,40 +3,32 @@ import FavoriteContainer from '../containers/FavoriteContainer';
 // import PropTypes from 'prop-types';
 
 
-const Movie = ({ movieData, favProp, history }) => {
+const Movie = ({ movieData, favProp, history, favoriteClass }) => {
+
+  const addClass = () => {
+    console.log(movieData, favoriteClass)
+    return favoriteClass.indexOf(movieData) !== -1 ? 'movie-card favorite' : 'movie-card';
+  }
 
   const backgroundStyle = {
     backgroundImage: `url(https://image.tmdb.org/t/p/w300${movieData.poster_path})`,
     backgroundSize: 'cover'
   }
 
-  const backgroundTransparent = {
-    backgroundColor: 'red',
-    // opacity: .25%
-  }
-
-  const FrontSide = () => {
-    return (
-      <div className='front-side card-side'></div>
-    )
-  }
-
   const BackSide = () => {
     return (
-      <div className='back-side card-side'>
+      <div className='back-side'>
         <h3 className='movie-title'>{ movieData.title }</h3>
         <p className='release'>{ movieData.release_date }</p>
         <p className='overview'>{ movieData.overview } </p>
-        <FavoriteContainer  favMovie={movieData}
-                            favsProp={ favProp }
-                            history={history}/>
+
       </div>
     )
   }
 
 
   return (
-    <div className='movie-card' style={backgroundStyle}>
+    <div className={addClass()} style={backgroundStyle}>
       <BackSide />
       <FavoriteContainer  favMovie={movieData}
                           favsProp={ favProp }
@@ -45,11 +37,5 @@ const Movie = ({ movieData, favProp, history }) => {
   )
 
 }
-
-
-
-// Movie.propTypes = {
-//   cardData: PropTypes.object,
-// }
 
 export default Movie

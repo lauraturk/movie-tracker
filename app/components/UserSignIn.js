@@ -14,8 +14,6 @@ class UserSignIn extends Component{
   }
 
   handleNewUser() {
-    // let { history } = this.props
-    // history.history.replace('/')
     ApiCalls.newUserFetch(this.state)
     .then(responseId => this.handleSignInUser())
     .catch(error => console.log(error, "new user error"))

@@ -5,10 +5,10 @@ import FavoriteContainer from '../containers/FavoriteContainer';
 
 const Movie = ({ movieData, favProp, history, favoriteClass }) => {
 
-  const addClass = () => {
-    console.log(movieData, favoriteClass)
-    return favoriteClass.indexOf(movieData) !== -1 ? 'movie-card favorite' : 'movie-card';
-  }
+  // const addClass = () => {
+  //   console.log(movieData, favoriteClass)
+  //   return favoriteClass.indexOf(movieData) !== -1 ? 'movie-card favorite' : 'movie-card';
+  // }
 
   const backgroundStyle = {
     backgroundImage: `url(https://image.tmdb.org/t/p/w300${movieData.poster_path})`,
@@ -28,7 +28,7 @@ const Movie = ({ movieData, favProp, history, favoriteClass }) => {
 
 
   return (
-    <div className={addClass()} style={backgroundStyle}>
+    <div className='movie-card' style={backgroundStyle}>
       <BackSide />
       <FavoriteContainer  favMovie={movieData}
                           favsProp={ favProp }

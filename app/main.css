@@ -124,9 +124,9 @@ nav {
   stroke: #EF233C;
 }
 
-.favorite {
-  box-shadow: 2px 3px 2px 3px #EF233C;
-}
+/*.favorite {
+  box-shadow: 2px 2px 2px 2px 2px 2px 2px 2px #EF233C;
+}*/
 
 .hidden {
   display: none

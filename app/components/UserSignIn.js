@@ -22,13 +22,11 @@ class UserSignIn extends Component{
   handleSignInUser() {
     let { handleSignIn, loadUserFavorites, history } = this.props
 
-    ApiCalls.logInFetch('/api/users/',
-      {email: this.state.email, password: this.state.password}
-    )
+    ApiCalls.logInFetch(this.state.email, this.state.password)
     .then(responseId => {
       handleSignIn(responseId.data)
-      this.retrieveFavs(responseId.data)
       history.history.replace('/')
+      this.retrieveFavs(responseId.data)
     })
     .then(loadUserFavorites())
     .catch(error => console.log(error, "handleSignInUser error"))
@@ -37,10 +35,12 @@ class UserSignIn extends Component{
 
   retrieveFavs(userData) {
     let { loadUserFavorites } = this.props
-
-    fetch(`api/users/${userData.id}/favorites/`)
+    console.log('userId logging in: ', userData.id);
+    fetch(`api/users/${userData.id}/favorites`)
     .then(response => response.json())
-    .then(favArrObj => {loadUserFavorites(favArrObj.data)})
+    .then(favArrObj => {
+      loadUserFavorites(favArrObj.data)
+    })
     .catch(error => console.log('retrieve favorites error: ', error))
   }
 

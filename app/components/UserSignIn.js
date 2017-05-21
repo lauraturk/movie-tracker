@@ -45,7 +45,7 @@ class UserSignIn extends Component{
   }
 
   render() {
-    let { userId, handleSignOut, clearAllFavorites } = this.props;
+    let { userId, handleSignOut, clearAllFavorites, history } = this.props;
 
     const newUserSignInForm = () => {
       return(
@@ -91,10 +91,14 @@ class UserSignIn extends Component{
     }
 
     const signOutButton = () => {
+      // console.log(history)
       return (
-        <div className="form-navlinks" onClick={() => {
+        <a href='/' className="form-navlinks" onClick={() => {
                   handleSignOut();
-                  clearAllFavorites()}}>Sign Out</div>
+                  clearAllFavorites();
+                  // history.history.push('/');
+                }
+                  }>Sign Out</a>
       )
     }
 
@@ -106,9 +110,6 @@ class UserSignIn extends Component{
         <NavLink to='/login/newUser' activeClassName="selected" className="form-navlinks">Create An Account</NavLink>
         <NavLink to='/login/signIn' activeClassName="selected" className="form-navlinks">Sign In</NavLink>
         <Route exact path='/login' render={ () => signOutButton()}/>
-
-
-
       </div>
     )
   }

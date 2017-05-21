@@ -48,11 +48,6 @@ input, input[type='submit']{
   width: 100%;
 }
 
-button {
-  height: 40px;
-  width: 90%;
-}
-
 .form-navlinks {
   text-align: center;
   background-color: #edf2f4;
@@ -63,6 +58,16 @@ button {
   padding: 10px;
   text-decoration: none;
   width: 90%;
+}
+
+.form-navlinks: hover {
+  /*cursor: pointer;*/
+  background-color: #d90429;
+}
+
+button .form-navlinks {
+  border: none;
+  
 }
 
 .forms {
@@ -153,7 +158,7 @@ button {
 }
 
 .selected {
-  color: #EF233C;
+  color: #8e98a7;
 }
 
 .selected > svg path {

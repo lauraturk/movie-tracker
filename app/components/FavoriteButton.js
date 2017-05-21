@@ -1,15 +1,8 @@
 import React from 'react'
 
 export const FavoriteButton = (props) => {
-<<<<<<< HEAD
   let {handleFavAdd, handleFavRemove, userId, favMovie, favoriteArr} = props
-=======
-  let {handleFavAdd, handleFavRemove, userId, favMovie, favsProp} = props
 
-  console.log(userId)
-
-  // let favClass;
->>>>>>> lt-css-branch
   let favMovieUpdate;
 
 

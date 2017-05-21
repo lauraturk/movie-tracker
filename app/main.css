@@ -1,16 +1,17 @@
 body {
+  background-color: #271F30;
   margin: 0;
   padding 0;
   font-family: 'Rubik', sans-serif;
 }
 
 nav {
-  background-color: #F0EDA4;
+  /*background-color: #F0EDA4;*/
   text-align: center;
 }
 
 .page-title {
-  color: #230007;
+  color: #D0FCB3;
   font-family: 'Trirong', serif;
   font-weight: 700;
   font-size: 54px;
@@ -18,25 +19,85 @@ nav {
 }
 
 .main {
-  background-color: #EDE5E1;
-  margin: 0;
+  /*background-color: #EDE5E1;*/
+  margin: 0 auto;
 }
 
 #movie-grid-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+  /*z-index: 1;*/
+  /*perspective: 1000px;*/
+}
+
+.movie-card {
+  height: 320px;
+  width: 220px;
+  margin: 10px;
+  z-index: 0;
+  transform-style: preserve-3d;
+  transition: all .1s linear;
+  perspective: 1000px;
+}
+
+/*.movie-card:hover {
+  transform: rotateY(180deg);
+}*/
+
+.hidden {
+  display: none
+}
+
+.movie-card:hover > .back-side {
+  /*opacity: 0;*/
+  visibility: visible;
+  z-index: 0;
+  /*transition: opacity 1s ease-in, visibility .75s linear;*/
+}
+
+.movie-card:hover {
+  opacity: .2;
+  transition: opacity 1s ease-in, visibility .75s linear;
+}
+
+.card-side {
+ position: absolute;
+ top: 0;
+ overflow: hidden;
+ backface-visibility: hidden;
+ box-shadow: 0 10px 35px rgba(50,50,93,.1),0 2px 15px rgba(0,0,0,.07);
+}
+
+.back-side {
+  height: 100%;
+  width: 100%;
+  visibility: hidden;
+  background-color: #D0FCB3;
+  opacity: .25%;
+  height: 80%;
+  text-align: center;
+  z-index: 1;
+  /*transform: rotateY(180deg);*/
+}
+
+.movie-title {
+  font-size: 18px;
+  width: 90%;
+  margin: 10 auto;
+}
+
+.release {
+  font-size: 16px;
+  width: 90%;
   margin: 0 auto;
 }
 
-.movie {
-  height: 300px;
-  width: 200px;
-
-  margin: 10px;
-}
-
-
-.svg-hidden {
-  display: none
+.overview {
+  font-size: 12px;
+  width: 90%;
+  margin: 0 auto;
 }

@@ -9,7 +9,7 @@ export const FavoriteButton = (props) => {
   const handleClick = (e) => {
 
     if (!userId.id){
-      history.history.push('/login')
+      history.history.push('/login/signIn')
     }
 
     e.target.classList.toggle('favorite')

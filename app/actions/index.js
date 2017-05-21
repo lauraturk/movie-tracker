@@ -56,4 +56,10 @@ export const signInUser = (userId) => {
     type: 'SIGN_IN_USER',
     userId,
   }
+
+export const signOutUser = (userId) => {
+  return {
+    type: 'SIGN_OUT_USER',
+    userId,
+  }
 }

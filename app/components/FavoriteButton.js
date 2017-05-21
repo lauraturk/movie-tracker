@@ -1,4 +1,5 @@
 import React from 'react'
+import ApiCalls from './ApiHelper'
 
 export const FavoriteButton = (props) => {
   let {handleFavAdd, handleFavRemove, userId, favMovie, favoriteArr, history} = props
@@ -8,9 +9,7 @@ export const FavoriteButton = (props) => {
 
   const handleClick = (e) => {
 
-    if (!userId.id){
-      history.history.push('/login/signIn')
-    }
+    if (!userId.id) { history.history.push('/login/signIn') }
 
     e.target.classList.toggle('favorite')
     let fav = e.target.className.baseVal.indexOf('favorite') !== -1 ? true : false;
@@ -22,13 +21,7 @@ export const FavoriteButton = (props) => {
   const handleAdd = () => {
     console.log('in add section');
     favMovie.user_id = userId.id; //add userId to object for API call
-    return fetch('api/users/favorites/new',
-      {
-        method: 'POST',
-        body: JSON.stringify(favMovie),
-        headers: { 'Content-Type':'application/json' }
-      })
-    .then(response => response.json())
+    ApiCalls.addFavFetch(favMovie)
     .then(favId => {
       delete favMovie.user_id //remove userId from object- no longer needed
       handleFavAdd(userId, favMovie)
@@ -38,13 +31,7 @@ export const FavoriteButton = (props) => {
 
   const handleDelete = () => {
     console.log('in delete section');
-    fetch(`api/users/${userId.id}/favorites/${favMovie.movie_id}`,
-      {
-        method: 'DELETE',
-        headers: { 'Content-Type':'application/json' }
-      })
-    .then(response => response.json())
-    // .then(deleted => console.log("deleted response: ", deleted))
+    ApiCalls.deleteFavFetch(userId, favMovie)
     .then(handleFavRemove(userId, favMovie))
     .catch(error => console.log('delete fav movie error: ', error))
   }
@@ -64,6 +51,3 @@ export const FavoriteButton = (props) => {
   )
 
 }
-
-
-{/* <object type="image/svg+xml" alt="heart data" data="./images/heart-svg.svg">favorites button</object> */}

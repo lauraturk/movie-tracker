@@ -8,14 +8,33 @@ export default class ApiCalls {
     .then(movieObj => movieObj)
   }
 
-  static logInFetch(fetchType, body) {
-    return fetch(fetchType, {
-      method: 'POST',
-      body: JSON.stringify(body),
-      headers: { 'Content-Type':'application/json' },
-    })
-    .then(response => response.json())
+  static logInFetch(email, password) {
+    return fetch('/api/users/',
+      {
+        method: 'POST',
+        body: JSON.stringify({email: email, password: password}),
+        headers: { 'Content-Type':'application/json' },
+      })
+      .then(response => response.json())
   }
 
+  static addFavFetch(favMovie) {
+    return fetch('api/users/favorites/new',
+      {
+        method: 'POST',
+        body: JSON.stringify(favMovie),
+        headers: { 'Content-Type':'application/json' }
+      })
+      .then(response => response.json())
+  }
+
+  static deleteFavFetch(userId, favMovie) {
+    return fetch(`api/users/${userId.id}/favorites/${favMovie.movie_id}`,
+      {
+        method: 'DELETE',
+        headers: { 'Content-Type':'application/json' }
+      })
+    .then(response => response.json())
+  }
 
 }

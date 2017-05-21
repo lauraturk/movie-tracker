@@ -1,4 +1,4 @@
-import {movies} from '../../reducers/movie-reducer';
+import { movies } from '../../reducers/movie-reducer';
 
 const moviesArray = [{
   movie_id: 283995,
@@ -13,7 +13,7 @@ const moviesArray = [{
 describe('movie reducer tests', () => {
 
 
-  it('should return an empty array', () => {
+  it('default case should return an empty array', () => {
 
     expect(movies(undefined, {})).toEqual([])
   })

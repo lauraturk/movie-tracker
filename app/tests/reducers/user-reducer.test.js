@@ -13,10 +13,15 @@ describe('user reducer tests', () => {
 
     const action = {
       type: 'SIGN_IN_USER',
-      userId: 1
+      userId: {
+        name: 'dude',
+        id: 1,
+        password: 'dude',
+        email: 'dude'
+      }
     }
 
-    expect(user(undefined, action)).toHaveLength(1)
-    expect(user([ action ], action)).toHaveLength(2)
+    expect(user({}, action)).toHaveProperty('name', 'dude')
+    expect(user({}, action)).toEqual(action.userId)
   })
 })

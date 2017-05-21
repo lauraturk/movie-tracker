@@ -3,18 +3,18 @@ import { mount, shallow } from 'enzyme';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 
-import FavoriteContainer from '../../containers/FavoriteContainer';
-import { FavoriteButton } from '../../components/FavoriteButton';
+import UserContainer from '../../containers/UserContainer';
+import UserSignIn from '../../components/UserSignIn';
 
 const mockStore = configureMockStore()({
-  favorites: [],
-  user: {}
+  user: {},
+  router: {}
 });
 
 const setup = () => {
-  const Container = mount(<Provider store={mockStore}><FavoriteContainer /></Provider>);
+  const Container = shallow(<Provider store={mockStore}><UserContainer /></Provider>);
 
-  const Component = Container.find(FavoriteButton);
+  const Component = Container.find(UserSignIn);
 
   return {
     Container,
@@ -22,13 +22,11 @@ const setup = () => {
   }
 }
 
-describe('FavoriteContainer', () => {
+describe('UserContainer', () => {
   const { Container, Component } = setup();
 
   it('should pass down the correct action creators', () => {
 
-    expect(Object.keys(Component.props())).toContain('handleFavAdd');
     expect(Object.keys(Component.props())).toContain('userId');
-
   });
 });

@@ -11,9 +11,10 @@ export const FavoriteButton = (props) => {
     if (!userId.id) { history.history.push('/login/signIn') }
 
     e.target.classList.toggle('favorite')
-
+    console.log('classList: ', e.target.classList);
     let fav = e.target.className.baseVal.indexOf('favorite') !== -1 ? true : false;
 
+    console.log('1: ',fav);
     (fav) ? handleAdd() : handleDelete()
   }
 
@@ -36,7 +37,9 @@ export const FavoriteButton = (props) => {
   }
 
   const addClass = () => {
-    return favoriteArr.indexOf(favMovie) !== -1 ? 'favorite' : '';
+    let match = favoriteArr.find(movie => movie.movie_id === favMovie.movie_id)
+    console.log(2);
+    return match ? 'favorite' : '';
   }
 
   return (

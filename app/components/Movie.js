@@ -1,14 +1,13 @@
 import React from 'react';
 import FavoriteContainer from '../containers/FavoriteContainer';
-// import PropTypes from 'prop-types';
 
 
 const Movie = ({ movieData, favProp, history, favoriteClass }) => {
 
-  // const addClass = () => {
-  //   console.log(movieData, favoriteClass)
-  //   return favoriteClass.indexOf(movieData) !== -1 ? 'movie-card favorite' : 'movie-card';
-  // }
+  const addClass = () => {
+    // console.log(movieData, favoriteClass)
+    return favoriteClass.indexOf(movieData) == -1 ? 'movie-card' : 'movie-card favorite-card';
+  }
 
   const backgroundStyle = {
     backgroundImage: `url(https://image.tmdb.org/t/p/w300${movieData.poster_path})`,
@@ -28,7 +27,7 @@ const Movie = ({ movieData, favProp, history, favoriteClass }) => {
 
 
   return (
-    <div className='movie-card' style={backgroundStyle}>
+    <div className={ addClass() } style={backgroundStyle}>
       <BackSide />
       <FavoriteContainer  favMovie={movieData}
                           favsProp={ favProp }

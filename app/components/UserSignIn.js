@@ -50,13 +50,16 @@ class UserSignIn extends Component{
     const newUserSignInForm = () => {
       return(
         <form className={'form'}>
-          <input  value={this.state.name}
+          <input  className='input-field'
+                  value={this.state.name}
                   placeholder="Name"
                   onChange={ e => this.setState({ name: e.target.value} )} />
-          <input  value={this.state.email}
+          <input  className='input-field'
+                  value={this.state.email}
                   placeholder="email"
                   onChange={ e => this.setState({ email: e.target.value} )} />
-          <input  value={this.state.password}
+          <input  className='input-field'
+                  value={this.state.password}
                   placeholder="password"
                   onChange={ e => this.setState({ password: e.target.value} )} />
 
@@ -73,10 +76,12 @@ class UserSignIn extends Component{
     const currentUserSignForm = () => {
       return (
         <form className={'form'}>
-          <input  value={this.state.email}
+          <input  className='input-field'
+                  value={this.state.email}
                   placeholder="email"
                   onChange={ e => this.setState({ email: e.target.value} )} />
-          <input  value={this.state.password}
+          <input  className='input-field'
+                  value={this.state.password}
                   placeholder="password"
                   onChange={ e => this.setState({ password: e.target.value} )} />
 

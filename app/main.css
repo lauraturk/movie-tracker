@@ -63,6 +63,7 @@ nav {
   justify-content: center;
   margin: 0 30px;
   position: relative;
+  margin-top: 10px;
 }
 
 .movie-card {
@@ -74,7 +75,7 @@ nav {
 }
 
 .movie-card:hover > .back-side {
-  opacity: .80;
+  opacity: .85;
   visibility: visible;
   z-index: 1;
 }
@@ -86,6 +87,7 @@ nav {
 }
 
 .back-side {
+  color: #FFF;
   background-color: #8d99ae;
   height: 100%;
   overflow: hidden;
@@ -119,22 +121,22 @@ nav {
   stroke: #EF233C;
 }
 
-.favorite svg path {
+.favorite path {
   fill: #EF233C;
   stroke: #EF233C;
+  box-shadow: 0 0 3px #EF233C;
 }
 
-/*.favorite {
-  box-shadow: 2px 2px 2px 2px 2px 2px 2px 2px #EF233C;
-}*/
+.favorite-card {
+  box-shadow: 0 0 3px #EF233C;
+}
 
 .hidden {
   display: none
 }
+
 .movie-title {
   font-size: 18px;
-  width: 90%;
-  margin: 10 auto;
 }
 
 .release {
@@ -152,12 +154,17 @@ nav {
 /****** sign in forms *****/
 input, input[type='submit']{
   height: 40px;
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   width: 100%;
   border: none;
   color: #2b2d42;
   background-color: #edf2f4;
   width: 80%;
+}
+
+.input-field::placeholder, .input-field {
+  text-indent: 6px;
 }
 
 .form-navlinks {

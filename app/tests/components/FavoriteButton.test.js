@@ -10,12 +10,19 @@ const cleanedMovies = cleanMovies(dataStub.results)
 
 describe('FavoriteButton component', () => {
 
-  it.skip('should render favorite button', () => {
+  const fakeFunk = jest.fn();
 
-    // Having trouble getting past indexOf error
-
-    const wrapper = shallow(<FavoriteButton favMovie={cleanedMovies}/>);
+  it('should render favorite button', () => {
+    const wrapper = shallow(<FavoriteButton favoriteArr={cleanedMovies} handleFavAdd={fakeFunk} handleFavRemove={fakeFunk} favMovie={cleanedMovies}/>);
 
     expect(wrapper.find('.favorite-button')).toHaveLength(1)
+  })
+
+  it.skip('should render favorite button', () => {
+    const wrapper = shallow(<FavoriteButton favoriteArr={cleanedMovies} handleFavAdd={fakeFunk} handleFavRemove={fakeFunk} favMovie={cleanedMovies}/>);
+    const button = wrapper.find('.favorite-button')
+    button.simulate('click')
+
+    expect(fakeFunk).toBeCalled()
   })
 })

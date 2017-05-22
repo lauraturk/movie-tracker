@@ -9,7 +9,8 @@ class UserSignIn extends Component{
     this.state = {
       name: '',
       password: '',
-      email: ''
+      email: '',
+      errorClass: 'hidden'
     }
   }
 
@@ -29,8 +30,14 @@ class UserSignIn extends Component{
       this.retrieveFavs(responseId.data)
     })
     .then(loadUserFavorites())
-    .catch(error => console.log(error, "handleSignInUser error"))
-
+    .catch(error => {
+      console.log(error, "handleSignInUser error");
+      this.setState({
+        errorClass: 'show-error',
+        email: '',
+        password: ''
+      });
+    })
   }
 
   retrieveFavs(userData) {
@@ -45,6 +52,7 @@ class UserSignIn extends Component{
   }
 
   render() {
+
     let { userId, handleSignOut, clearAllFavorites, history } = this.props;
 
     const newUserSignInForm = () => {
@@ -79,10 +87,12 @@ class UserSignIn extends Component{
                   value={this.state.email}
                   placeholder="email"
                   onChange={ e => this.setState({ email: e.target.value} )} />
+                  <div className={this.state.errorClass}>Invalid Credentials</div>
           <input  className='input-field'
                   value={this.state.password}
                   placeholder="password"
                   onChange={ e => this.setState({ password: e.target.value} )} />
+                  <div className={this.state.errorClass}>Invalid Credentials</div>
           <input  type="submit"
                   placeholder="Sign In"
                   onClick={ e => {

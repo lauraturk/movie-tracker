@@ -22,7 +22,7 @@ const setup = () => {
   }
 }
 
-describe('UserContainer', () => {
+describe.skip('UserContainer', () => {
   const { Container, Component } = setup();
 
   it('should pass down the correct action creators', () => {

@@ -1,4 +1,8 @@
 import * as actions from '../../actions';
+import { cleanMovies } from '../../components/scrubber';
+import dataStub from '../components/dataStub';
+
+const cleanedMovies = cleanMovies(dataStub.results)
 
 describe('actions', () => {
 
@@ -16,10 +20,10 @@ describe('actions', () => {
 
     const expectedAction = {
       type: 'ADD_MOVIES',
-      moviesArray:  moviesArray
+      moviesArray:  cleanedMovies
     }
 
-    expect(actions.addMovies(moviesArray)).toEqual(expectedAction)
+    expect(actions.addMovies(cleanedMovies)).toEqual(expectedAction)
   })
 
   it('should create an action to add movies to favorites', () => {

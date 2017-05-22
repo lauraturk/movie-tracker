@@ -1,5 +1,4 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import Movie from './Movie.js';
 
 
@@ -11,7 +10,7 @@ const MovieGrid = (props) => {
                   favProp={ favoriteProp }
                   key={i}
                   history={history}
-                  favoriteClass={favoriteArr}
+                  favoriteList={favoriteArr}
             />
   })
 
@@ -19,9 +18,6 @@ const MovieGrid = (props) => {
     <div id='movie-grid-container'>{ movieGridArr }</div>
   )
 
-
-// Movie.propTypes = {
-//   cardArr: PropTypes.array,
 }
 
 export default MovieGrid

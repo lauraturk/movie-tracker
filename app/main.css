@@ -75,7 +75,7 @@ nav {
 }
 
 .movie-card:hover > .back-side {
-  opacity: .85;
+  opacity: .9;
   visibility: visible;
   z-index: 1;
 }
@@ -128,7 +128,7 @@ nav {
 }
 
 .favorite-card {
-  box-shadow: 0 0 3px #EF233C;
+  box-shadow: 0 0 9px #EF233C;
 }
 
 .hidden {

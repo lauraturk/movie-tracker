@@ -10,12 +10,10 @@ export const FavoriteButton = (props) => {
   const handleClick = (e) => {
     if (!userId.id) { history.history.push('/login/signIn') }
 
-    e.target.classList.toggle('favorite')
-    console.log('classList: ', e.target.classList);
-    let fav = e.target.className.baseVal.indexOf('favorite') !== -1 ? true : false;
+    let fav = favoriteArr.find(movie => movie.movie_id === favMovie.movie_id)
+    let indicator = fav ? true : false;
 
-    console.log('1: ',fav);
-    (fav) ? handleAdd() : handleDelete()
+    (indicator) ? handleDelete() : handleAdd()
   }
 
   const handleAdd = () => {
@@ -38,7 +36,6 @@ export const FavoriteButton = (props) => {
 
   const addClass = () => {
     let match = favoriteArr.find(movie => movie.movie_id === favMovie.movie_id)
-    console.log(2);
     return match ? 'favorite' : '';
   }
 

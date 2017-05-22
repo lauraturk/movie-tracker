@@ -2,7 +2,6 @@ export const favorites = (state=[], action) => {
   switch (action.type) {
     case 'ADD_FAV':
       state.push(action.favMovie)
-      state = Array.from(new Set(state)) //remove duplicates
       return [...state];
 
     case 'REMOVE_FAV':

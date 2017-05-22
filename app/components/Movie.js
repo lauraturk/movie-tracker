@@ -1,12 +1,13 @@
 import React from 'react';
 import FavoriteContainer from '../containers/FavoriteContainer';
 
-
-const Movie = ({ movieData, favProp, history, favoriteClass }) => {
+const Movie = ({ movieData, favProp, history, favoriteList }) => {
 
   const addClass = () => {
-    // console.log(movieData, favoriteClass)
-    return favoriteClass.indexOf(movieData) == -1 ? 'movie-card' : 'movie-card favorite-card';
+    let fav = favoriteList.find(movie => movie.movie_id === movieData.movie_id)
+    let indicator = fav ? true : false;
+
+    return fav ? 'movie-card favorite-card' : 'movie-card';
   }
 
   const backgroundStyle = {
@@ -19,19 +20,17 @@ const Movie = ({ movieData, favProp, history, favoriteClass }) => {
       <div className='back-side'>
         <h3 className='movie-title'>{ movieData.title }</h3>
         <p className='release'>{ movieData.release_date }</p>
-        <p className='overview'>{ movieData.overview } </p>
-
+        <p className='overview'>{ movieData.overview }</p>
       </div>
     )
   }
 
-
   return (
-    <div className={ addClass() } style={backgroundStyle}>
+    <div className={ addClass() } style={ backgroundStyle }>
       <BackSide />
-      <FavoriteContainer  favMovie={movieData}
+      <FavoriteContainer  favMovie={ movieData }
                           favsProp={ favProp }
-                          history={history}/>
+                          history={ history }/>
     </div>
   )
 

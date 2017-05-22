@@ -7,8 +7,6 @@ import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 import { Route } from 'react-router-dom';
 
-// import MovieContainer from './containers/movies-container.js'
-// import MovieIndex from './components/movieIndex';
 import { rootReducer } from './reducers/index.js';
 import App from './components/app';
 import { loadMovies } from './actions/index.js';

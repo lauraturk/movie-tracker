@@ -35,7 +35,7 @@ class UserSignIn extends Component{
 
   retrieveFavs(userData) {
     let { loadUserFavorites } = this.props
-    console.log('userId logging in: ', userData.id);
+
     fetch(`api/users/${userData.id}/favorites`)
     .then(response => response.json())
     .then(favArrObj => {
@@ -62,7 +62,6 @@ class UserSignIn extends Component{
                   value={this.state.password}
                   placeholder="password"
                   onChange={ e => this.setState({ password: e.target.value} )} />
-
           <input  type="submit"
                   placeholder="Create Account"
                   onClick={ e => {
@@ -84,7 +83,6 @@ class UserSignIn extends Component{
                   value={this.state.password}
                   placeholder="password"
                   onChange={ e => this.setState({ password: e.target.value} )} />
-
           <input  type="submit"
                   placeholder="Sign In"
                   onClick={ e => {
@@ -97,18 +95,18 @@ class UserSignIn extends Component{
 
     const signOutButton = () => {
       return (
-        <a href='/' className="form-navlinks" onClick={() => {
-                  handleSignOut();
-                  clearAllFavorites()}
-                  }>Sign Out</a>
+        <a  href='/'
+            className="form-navlinks"
+            onClick={() => { handleSignOut(); clearAllFavorites()}}>
+          Sign Out
+        </a>
       )
     }
 
     return(
       <div className='forms-field'>
-      <Route exact path='/login/newUser' render={ () => newUserSignInForm()}/>
-      <Route exact path='/login/signIn' render={ () => currentUserSignForm()}/>
-
+        <Route exact path='/login/newUser' render={ () => newUserSignInForm()}/>
+        <Route exact path='/login/signIn' render={ () => currentUserSignForm()}/>
         <NavLink to='/login/newUser' activeClassName="selected" className="form-navlinks">Create An Account</NavLink>
         <NavLink to='/login/signIn' activeClassName="selected" className="form-navlinks">Sign In</NavLink>
         <Route exact path='/login' render={ () => signOutButton()}/>

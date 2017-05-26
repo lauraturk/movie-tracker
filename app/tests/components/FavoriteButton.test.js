@@ -19,10 +19,10 @@ describe('FavoriteButton component', () => {
   })
 
   it.skip('should render favorite button', () => {
-    const wrapper = shallow(<FavoriteButton favoriteArr={cleanedMovies} handleFavAdd={fakeFunk} handleFavRemove={fakeFunk} favMovie={cleanedMovies}/>);
+    const wrapper = mount(<FavoriteButton favoriteArr={cleanedMovies} handleFavAdd={fakeFunk} handleFavRemove={fakeFunk} favMovie={cleanedMovies}/>);
     const button = wrapper.find('.favorite-button')
     button.simulate('click')
 
-    expect(fakeFunk).toBeCalled()
+    expect(fakeFunk).toBeCalledTimes(1)
   })
 })

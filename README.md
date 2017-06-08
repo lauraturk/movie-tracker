@@ -18,6 +18,8 @@ The project is complete
 
 # Screenshots
 ![Homescreen with movies favorited](https://github.com/anderswood/movie-tracker/blob/master/app/components/images/movie-tracker%20screenshot.png)
+![Favorites dashboard](https://github.com/anderswood/movie-tracker/blob/master/app/components/images/movie-tracker%20favorites.png)
+![User login and account setup](https://github.com/anderswood/movie-tracker/blob/master/app/components/images/movie-tracker%20login.png)
 
 # Installation and Setup Instructions
 * clone repo

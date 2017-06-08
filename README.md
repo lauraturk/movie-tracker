@@ -17,7 +17,7 @@ The project is complete
 * Deployed to Heroku
 
 # Screenshots
-[Screen Shot]()
+[Homescreen with movies favorited](https://github.com/anderswood/movie-tracker/blob/master/app/components/images/movie-tracker%20screenshot.png)
 
 # Installation and Setup Instructions
 * clone repo

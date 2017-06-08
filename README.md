@@ -17,8 +17,13 @@ The project is complete
 * Deployed to Heroku
 
 # Screenshots
+Homescreen with movies favorited:
 ![Homescreen with movies favorited](https://github.com/anderswood/movie-tracker/blob/master/app/components/images/movie-tracker%20screenshot.png)
+
+Favorites dashboard:
 ![Favorites dashboard](https://github.com/anderswood/movie-tracker/blob/master/app/components/images/movie-tracker%20favorites.png)
+
+User login and account setup:
 ![User login and account setup](https://github.com/anderswood/movie-tracker/blob/master/app/components/images/movie-tracker%20login.png)
 
 # Installation and Setup Instructions

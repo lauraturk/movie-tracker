@@ -1,5 +1,5 @@
 # Movie Tracker
-[Production Site](https://themovietracker.herokuapp.com/)
+![Production Site](https://themovietracker.herokuapp.com/)
 
 Movie Tracker is a React.js/Redux.js app built with router and a Node.js/express back-end that pulls movie details from [The Movie DB](https://www.themoviedb.org/documentation/api). The app allows users to browse recently released movies and favorite individual movies. The favorite movies are saved to the user's dashboard.
 

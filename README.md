@@ -40,7 +40,7 @@ The main goal for this Turing project was to learn Redux and incorporate API cal
 * Starter repo: [starter](https://github.com/turingschool-examples/movie-tracker)
 
 #### Wireframes:
-I created these wireframes in Sketch in order to have a point of reference for the necessary action creators, reducers, and containers, as well as to guide our ultimate design.
+Laura Turk created these wireframes in Sketch in order to have a point of reference for the necessary action creators, reducers, and containers, as well as to guide our ultimate design.
 ![Favorites Page](https://github.com/anderswood/movie-tracker/blob/master/app/components/images/wireframe-favorites.png)
 ![Home Page](https://github.com/anderswood/movie-tracker/blob/master/app/components/images/wireframe-home.png)
 ![Sign-In Page](https://github.com/anderswood/movie-tracker/blob/master/app/components/images/wireframe-signin.png)

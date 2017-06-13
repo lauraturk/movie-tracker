@@ -3,7 +3,7 @@
 
 Movie Tracker is a React.js/Redux.js app built with router and a Node.js/express back-end that pulls movie details from [The Movie DB](https://www.themoviedb.org/documentation/api). The app allows users to browse recently released movies and favorite individual movies. The favorite movies are saved to the user's dashboard.
 
-My team of three members (including myself) built that app as part of a school project over one week.
+Movie Tracker was assigned as an introductory project for Redux and React-Router. It was completed in seven days by a group of three members.
 * [Original Project Description](https://github.com/turingschool-examples/movie-tracker)
 
 # Project Status
@@ -34,12 +34,13 @@ The project is complete
 * npm start
 
 # Reflection
-The main goal for this Turing project was to learn Redux and incorporate API calls and promises. This was challenging but much more manageable since we had a group of three.
+The main goal for this Turing project was to learn Redux and incorporate API calls and promises. The challenge of this project - besides learning Redux - was implementing the Redux store in a project of this size and integrating the Redux store into our understanding of React components and lifecycles. 
 
 ## Resources
 * Starter repo: [starter](https://github.com/turingschool-examples/movie-tracker)
 
 #### Wireframes:
+I created these wireframes in Sketch in order to have a point of reference for the necessary action creators, reducers, and containers, as well as to guide our ultimate design.
 ![Favorites Page](https://github.com/anderswood/movie-tracker/blob/master/app/components/images/wireframe-favorites.png)
 ![Home Page](https://github.com/anderswood/movie-tracker/blob/master/app/components/images/wireframe-home.png)
 ![Sign-In Page](https://github.com/anderswood/movie-tracker/blob/master/app/components/images/wireframe-signin.png)

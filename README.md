@@ -40,6 +40,6 @@ The main goal for this Turing project was to learn Redux and incorporate API cal
 * Starter repo: [starter](https://github.com/turingschool-examples/movie-tracker)
 
 #### Wireframes:
-![https://github.com/anderswood/movie-tracker/blob/master/app/components/images/wireframe-favorites.png]
-![https://github.com/anderswood/movie-tracker/blob/master/app/components/images/wireframe-home.png]
-![https://github.com/anderswood/movie-tracker/blob/master/app/components/images/wireframe-signin.png]
+![Favorites Page](https://github.com/anderswood/movie-tracker/blob/master/app/components/images/wireframe-favorites.png)
+![Home Page](https://github.com/anderswood/movie-tracker/blob/master/app/components/images/wireframe-home.png)
+![Sign-In Page](https://github.com/anderswood/movie-tracker/blob/master/app/components/images/wireframe-signin.png)

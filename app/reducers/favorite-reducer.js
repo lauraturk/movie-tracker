@@ -1,8 +1,7 @@
 export const favorites = (state=[], action) => {
   switch (action.type) {
     case 'ADD_FAV':
-      state.push(action.favMovie)
-      return [...state];
+      return [...state, action.favMovie];
 
     case 'REMOVE_FAV':
       const indexToRemove = state.findIndex( movie => {

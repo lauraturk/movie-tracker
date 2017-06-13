@@ -6,6 +6,7 @@ import { NavLink, Link, Route } from 'react-router-dom'
 class UserSignIn extends Component{
   constructor(props) {
     super(props)
+    console.log(props);
     this.state = {
       name: '',
       password: '',
@@ -21,6 +22,7 @@ class UserSignIn extends Component{
   }
 
   handleSignInUser() {
+    console.log(this.props);
     let { handleSignIn, loadUserFavorites, history } = this.props
 
     ApiCalls.logInFetch(this.state)

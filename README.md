@@ -1,66 +1,45 @@
 # Movie Tracker
+[Production Site](https://themovietracker.herokuapp.com/)
 
-  This project is working off the The Movie DB API (https://www.themoviedb.org/documentation/api - note you'll need to go create an account to get an API key). The idea of the project is to be able to sign in as a user and save favorite movies. Pretty simple right? HA HA not!
+Movie Tracker is a React.js/Redux.js app built with router and a Node.js/express back-end that pulls movie details from [The Movie DB](https://www.themoviedb.org/documentation/api). The app allows users to browse recently released movies and favorite individual movies. The favorite movies are saved to the user's dashboard.
 
-  Bc this is still in beta here is what you'll need to know.
-  * Using PostgreSQL
-  * Setting up steps:
-    * `npm install`
-    * `createdb` - if you don't have postgresSQl go install it here: http://postgresapp.com/ 
-    * `psql -f ./database/users.sql`
-    * `npm start` - visit `/api/users` - should see a json response.
-  * 2 APIs - MovieDB and your very own api
-  * Fetch upcoming movies from MovieDB
+My team of three members (including myself) built that app as part of a school project over one week.
+* [Original Project Description](https://github.com/turingschool-examples/movie-tracker)
 
+# Project Status
+The project is complete
 
-### API
-  Hopefully you will be using fetch to make all your api calls. If you are making a post request note that you will need to pass in headers - with a `'Content-Type': 'application/json'`. Additionally you will need to pass any any required fields into the body.
+# Technology
+* React.js
+* Redux.js
+* Router
+* PostgreSQL backend to save user favorites
+* Deployed to Heroku
 
-###### Users
+# Screenshots
+#### Homescreen with movies favorited:
+![Homescreen with movies favorited](https://github.com/anderswood/movie-tracker/blob/master/app/components/images/movie-tracker%20screenshot.png)
 
- * ##### Sign In `/api/users`
+#### Favorites dashboard:
+![Favorites dashboard](https://github.com/anderswood/movie-tracker/blob/master/app/components/images/movie-tracker%20favorites.png)
 
-  To sign in you will need to pass in *email* and *password* to the *body*.
-  Emails should be sent in all lowercase. - ex: `{..., body: {email: 'tim@aol.com', password: 'password'} }`
-  The database starts off with a single user inside. -> { email: tman2272@aol.com password: password }. Keep in mind the response will send the entire user back.
+#### User login and account setup:
+![User login and account setup](https://github.com/anderswood/movie-tracker/blob/master/app/components/images/movie-tracker%20login.png)
 
-* ##### Create Account - `/api/users/new`
-  Creating an account must have all input fields filled in (name, email, password)
-  You must send all three into the body. Passwords are case sensitive.
-  Keep in mind the response only gives the new user ID.
+# Installation and Setup Instructions
+* clone repo
+* npm install
+* Install PostgreSQL if you don't have it: [postgresapp](http://postgresapp.com/)
+* npm run build
+* npm start
 
-* ##### Add Favorite - `/users/favorites/new`
-  To save a favorite you must send into the body: movie_id, user_id and title, poster_path, release_date, vote_average, overview.
-  Keep in mind the response only gives the new favorite id
+# Reflection
+The main goal for this Turing project was to learn Redux and incorporate API calls and promises. This was challenging but much more manageable since we had a group of three.
 
-* ##### Receive All Favorites - `/users/:id/favorites`
-  To get a users favorite movies you need to send in the user ID through the params. This will return an array favorite objects.
+## Resources
+* Starter repo: [starter](https://github.com/turingschool-examples/movie-tracker)
 
-* ##### Delete a Favorite - `/users/:id/favorites/:favID`
-  To delete a users favorite you must send in the users id and id of the movie.
-
-### Iterations
-
-##### Iteration 0: Pull in movie API
-  * Pull most recent movies from MovieDB API.
-  * Display each movie on root index `/`
-
-##### Iteration 1: Sign In / Sign Out Functionality
-  * Be able to sign in on page `/login` and redirect user to `/`
-    * Flash "Email and Password do not match" - if password is incorrect
-  * Ability to create a user.
-    * Flash "Email has already been used" - if email has been taken
-  * The user has the ability to sign out. 
-  
-##### Iteration 2: Favorites
-  * Each movie should be displayed with a favorite button.
-  * If the user is not signed in and clicks on a favorite button the user will be prompted with the request to create an account.
-  * Validate favorites before adding to db. Aka does that user already have the movie stored as favorites. There should be no duplicates. 
-  * If the user visits `/favorites` they should see a list of all their favorite movies.
-  * The user should be able to delete favorites from `/favorites` or `/`.
-  * Favorite movies should have a visual indication on `/`.
-
-Extensions:
-  * A user stays signed in after refreshing the page. *Hint:* You will probably use localStorage. 
-  * Should only take real email addresses *Hint:* Look into regular expressions
-  
+#### Wireframes:
+![https://github.com/anderswood/movie-tracker/blob/master/app/components/images/wireframe-favorites.png]
+![https://github.com/anderswood/movie-tracker/blob/master/app/components/images/wireframe-home.png]
+![https://github.com/anderswood/movie-tracker/blob/master/app/components/images/wireframe-signin.png]

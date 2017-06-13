@@ -30061,10 +30061,16 @@
 	  switch (action.type) {
 	    case 'SIGN_IN_USER':
 	      var currentUser = action.userId;
+<<<<<<< HEAD
 	      return Object.assign(state, currentUser);
 	    case 'SIGN_OUT_USER':
 	      return state = {};
 	
+=======
+	      return Object.assign({}, state, currentUser);
+	    case 'SIGN_OUT_USER':
+	      return state = {};
+>>>>>>> 327db38badd0d68302d82df11949f4826eead8f5
 	    default:
 	      return state;
 	  }
@@ -30088,8 +30094,12 @@
 	
 	  switch (action.type) {
 	    case 'ADD_FAV':
+<<<<<<< HEAD
 	      state.push(action.favMovie);
 	      return [].concat(_toConsumableArray(state));
+=======
+	      return [].concat(_toConsumableArray(state), [action.favMovie]);
+>>>>>>> 327db38badd0d68302d82df11949f4826eead8f5
 	
 	    case 'REMOVE_FAV':
 	      var indexToRemove = state.findIndex(function (movie) {
